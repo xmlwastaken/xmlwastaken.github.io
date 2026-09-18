@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio de Mohamed Laamri — automatisme industriel, systèmes embarqués et IoT." />
+  <meta name="theme-color" content="#071210" />
+  <title>Mohamed Laamri | Automatisme industriel</title>
+  <style>
+    :root {
+      --bg: #071210;
+      --bg-soft: #0b1a17;
+      --panel: rgba(14, 32, 28, 0.82);
+      --panel-solid: #0e201c;
+      --text: #f2f8f5;
+      --muted: #9eb5ad;
+      --line: rgba(190, 226, 211, 0.15);
+      --lime: #d7ff65;
+      --lime-deep: #a7cf39;
+      --aqua: #75e2d1;
+      --orange: #ff9b6b;
+      --red: #ff796e;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(179, 230, 207, 0.032) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(179, 230, 207, 0.032) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), transparent 88%);
+      z-index: -3;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      width: 640px;
+      height: 640px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(74, 169, 137, .16), transparent 67%);
+      top: -240px;
+      right: -140px;
+      pointer-events: none;
+      z-index: -2;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .container { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(7, 18, 16, 0.72);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid transparent;
+      transition: border-color .25s ease, background .25s ease;
+    }
+    .site-header.scrolled { border-color: var(--line); background: rgba(7, 18, 16, .91); }
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      font-weight: 760;
+      letter-spacing: -.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+    .brand-mark {
+      width: 29px;
+      height: 29px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 9px;
+      color: #071210;
+      background: var(--lime);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: -.08em;
+      box-shadow: 0 0 25px rgba(215, 255, 101, .25);
+    }
+    .nav-links { display: flex; align-items: center; gap: 22px; color: var(--muted); font-size: .87rem; }
+    .nav-links a { transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .language-switcher { border: 1px solid var(--line); display: flex; border-radius: 999px; padding: 3px; gap: 2px; }
+    .language-switcher button {
+      color: var(--muted);
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      font-size: .72rem;
+      font-weight: 760;
+      letter-spacing: .07em;
+      padding: 5px 8px;
+      border-radius: 999px;
+      transition: .2s;
+    }
+    .language-switcher button.active { color: #071210; background: var(--lime); }
+    .header-contact { font-size: .82rem; font-weight: 700; color: #071210; background: var(--lime); padding: 9px 13px; border-radius: 999px; }
+
+    /* Generic sections */
+    section { padding: 112px 0; scroll-margin-top: 76px; }
+    .section-top { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 42px; }
+    .eyebrow { color: var(--lime); text-transform: uppercase; letter-spacing: .16em; font-size: .72rem; font-weight: 800; display: flex; align-items: center; gap: 9px; }
+    .eyebrow::before { content: ""; width: 21px; height: 1px; background: currentColor; }
+    h1, h2, h3, p { margin-top: 0; }
+    h2 { font-size: clamp(2.1rem, 4vw, 3.8rem); line-height: 1.05; letter-spacing: -.055em; margin: 10px 0 0; max-width: 680px; }
+    .section-lead { color: var(--muted); max-width: 430px; font-size: .96rem; margin-bottom: 0; }
+    .muted { color: var(--muted); }
+    .section-number { font-size: .85rem; color: var(--muted); letter-spacing: .08em; }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* Hero */
+    .hero { padding: 74px 0 92px; min-height: min(790px, calc(100vh - 76px)); display: grid; align-items: center; }
+    .hero-grid { display: grid; grid-template-columns: 1.06fr .94fr; gap: 58px; align-items: center; }
+    .availability { display: inline-flex; align-items: center; gap: 9px; border: 1px solid rgba(215, 255, 101, .31); background: rgba(215, 255, 101, .07); color: #e7ffc0; border-radius: 999px; padding: 7px 12px; font-size: .77rem; font-weight: 650; margin-bottom: 24px; }
+    .availability .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 0 rgba(215,255,101,.6); animation: pulse 2s infinite; }
+    @keyframes pulse { 70% { box-shadow: 0 0 0 8px rgba(215,255,101,0); } 100% { box-shadow: 0 0 0 0 rgba(215,255,101,0); } }
+    .hero h1 { font-size: clamp(3.4rem, 7.3vw, 6.75rem); line-height: .91; letter-spacing: -.075em; margin: 0 0 20px; }
+    .hero h1 .accent { color: var(--lime); }
+    .hero-role { font-size: clamp(1.02rem, 1.7vw, 1.34rem); max-width: 590px; color: #c6d9d1; margin: 0 0 26px; }
+    .hero-role strong { color: var(--text); font-weight: 650; }
+    .hero-copy { color: var(--muted); max-width: 570px; font-size: 1rem; margin-bottom: 32px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 46px; padding: 0 17px; border-radius: 12px; border: 1px solid var(--line); font-size: .9rem; font-weight: 730; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { color: #06120f; background: var(--lime); border-color: var(--lime); }
+    .button.secondary { background: rgba(255,255,255,.025); }
+    .button.secondary:hover { border-color: rgba(215,255,101,.52); background: rgba(215,255,101,.055); }
+    .arrow { font-size: 1.05rem; line-height: 1; }
+    .hero-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 47px; border-top: 1px solid var(--line); padding-top: 22px; gap: 18px; max-width: 610px; }
+    .metric { border-right: 1px solid var(--line); padding-right: 14px; }
+    .metric:last-child { border-right: 0; }
+    .metric strong { font-size: 1.75rem; line-height: 1; letter-spacing: -.06em; display: block; }
+    .metric span { color: var(--muted); font-size: .76rem; display: block; margin-top: 7px; }
+
+    .hero-visual { position: relative; min-height: 528px; }
+    .visual-shell { position: absolute; inset: 0; border: 1px solid var(--line); overflow: hidden; border-radius: 31px; background: linear-gradient(145deg, rgba(23, 56, 46, .82), rgba(8, 21, 18, .94)); box-shadow: var(--shadow); }
+    .visual-shell::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 72% 17%, rgba(117, 226, 209, .2), transparent 24%), radial-gradient(circle at 22% 82%, rgba(215,255,101,.13), transparent 27%); }
+    .hero-svg { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .9; }
+    .orbit { transform-origin: center; animation: rotate 24s linear infinite; }
+    .orbit-slow { transform-origin: center; animation: rotate-reverse 35s linear infinite; }
+    @keyframes rotate { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+    @keyframes rotate-reverse { from { transform: rotate(360deg); } to { transform: rotate(0); } }
+    .avatar-card { position: absolute; top: 49%; left: 51%; transform: translate(-50%, -50%); width: 194px; text-align: center; }
+    .avatar { width: 150px; height: 150px; margin: 0 auto 14px; display: grid; place-items: center; position: relative; isolation: isolate; border-radius: 50%; border: 1px solid rgba(215,255,101,.5); background: linear-gradient(145deg, #b5e95e, #68d6c7); color: #09201a; box-shadow: 0 0 0 13px rgba(215,255,101,.055), 0 0 70px rgba(117,226,209,.21); font-size: 3.3rem; font-weight: 900; letter-spacing: -.12em; }
+    .avatar::after { content: ""; position: absolute; width: 15px; height: 15px; bottom: 10px; right: 10px; border: 3px solid var(--panel-solid); border-radius: 50%; background: var(--lime); }
+    .avatar-card span { font-size: .71rem; color: #c3d8cf; text-transform: uppercase; letter-spacing: .15em; font-weight: 750; white-space: nowrap; }
+    .system-card { position: absolute; padding: 13px 15px; border: 1px solid var(--line); background: rgba(7,18,16,.68); backdrop-filter: blur(10px); border-radius: 13px; min-width: 145px; }
+    .system-card small { display: block; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; font-size: .59rem; font-weight: 800; margin-bottom: 4px; }
+    .system-card strong { display: block; font-size: .83rem; font-weight: 700; }
+    .system-card.one { top: 50px; left: 36px; }
+    .system-card.two { bottom: 45px; right: 27px; }
+    .system-card .online { color: var(--lime); }
+    .system-card .aqua { color: var(--aqua); }
+    .visual-corner { position: absolute; top: 18px; right: 20px; color: var(--muted); font-size: .62rem; letter-spacing: .12em; }
+
+    /* About */
+    .about-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 66px; }
+    .about-intro { font-size: clamp(1.25rem, 2vw, 1.65rem); line-height: 1.45; letter-spacing: -.026em; margin-bottom: 24px; }
+    .about-intro em { color: var(--lime); font-style: normal; }
+    .about-copy { color: var(--muted); max-width: 620px; }
+    .about-links { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 27px; }
+    .text-link { color: var(--aqua); font-size: .88rem; font-weight: 700; border-bottom: 1px solid rgba(117,226,209,.4); padding-bottom: 2px; }
+    .focus-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .focus-card { min-height: 196px; padding: 23px; border-radius: var(--radius-md); border: 1px solid var(--line); background: rgba(12,30,26,.62); }
+    .focus-icon { width: 32px; height: 32px; border: 1px solid rgba(215,255,101,.36); border-radius: 9px; color: var(--lime); display: grid; place-items: center; margin-bottom: 31px; font-weight: 900; font-size: .77rem; }
+    .focus-card h3 { margin-bottom: 8px; font-size: 1rem; letter-spacing: -.02em; }
+    .focus-card p { color: var(--muted); font-size: .84rem; line-height: 1.55; margin: 0; }
+
+    /* Experience */
+    .experience-list { border-top: 1px solid var(--line); }
+    .experience-card { display: grid; grid-template-columns: 160px minmax(0, 1fr) 160px; gap: 26px; padding: 34px 0; border-bottom: 1px solid var(--line); transition: padding .22s ease, background .22s ease; }
+    .experience-card:hover { padding-left: 15px; padding-right: 15px; background: rgba(215,255,101,.035); }
+    .experience-period { color: var(--aqua); font-size: .78rem; font-weight: 730; line-height: 1.45; }
+    .experience-period span { color: var(--muted); font-weight: 500; display: block; margin-top: 6px; }
+    .experience-body h3 { font-size: 1.25rem; letter-spacing: -.035em; margin: 0 0 3px; }
+    .experience-role { color: var(--lime); font-size: .87rem; font-weight: 670; margin: 0 0 15px; }
+    .experience-summary { color: var(--muted); margin: 0 0 14px; font-size: .91rem; }
+    .experience-bullets { list-style: none; padding: 0; margin: 0; display: grid; gap: 7px; }
+    .experience-bullets li { color: #bdd0c8; font-size: .84rem; padding-left: 16px; position: relative; }
+    .experience-bullets li::before { content: ""; position: absolute; left: 0; top: .63em; width: 5px; height: 5px; border-radius: 50%; background: var(--lime); }
+    .experience-tags { display: flex; flex-wrap: wrap; justify-content: flex-end; align-content: start; gap: 6px; }
+    .tag { font-size: .67rem; color: #c8dbd4; padding: 5px 8px; line-height: 1.1; border-radius: 999px; border: 1px solid rgba(190,226,211,.17); background: rgba(255,255,255,.025); white-space: nowrap; }
+
+    /* Projects */
+    .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px; }
+    .project-card { position: relative; overflow: hidden; min-height: 364px; display: flex; flex-direction: column; justify-content: flex-end; padding: 27px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: linear-gradient(180deg, rgba(22,54,45,.64), rgba(10,25,21,.92)); transition: transform .25s ease, border-color .25s ease; }
+    .project-card:hover { transform: translateY(-5px); border-color: rgba(215,255,101,.42); }
+    .project-card::before { content: ""; position: absolute; width: 300px; height: 300px; border-radius: 50%; top: -144px; right: -88px; background: radial-gradient(circle, var(--project-color, rgba(117,226,209,.25)), transparent 67%); opacity: .95; }
+    .project-visual { position: absolute; top: 26px; left: 27px; right: 27px; height: 132px; border-radius: 17px; border: 1px solid rgba(225,255,245,.14); overflow: hidden; background: rgba(4,17,14,.47); }
+    .project-visual svg { width: 100%; height: 100%; display: block; }
+    .project-year { color: var(--aqua); font-size: .74rem; letter-spacing: .07em; font-weight: 750; margin-bottom: 10px; }
+    .project-card h3 { font-size: 1.5rem; line-height: 1.08; letter-spacing: -.05em; margin: 0 0 11px; max-width: 430px; }
+    .project-card p { color: #b6cbc2; margin: 0 0 16px; font-size: .88rem; max-width: 510px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; position: relative; }
+    .project-tags .tag { background: rgba(7,18,16,.48); }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+    .skill-group { padding: 22px; border: 1px solid var(--line); border-radius: var(--radius-md); background: rgba(12,29,25,.58); }
+    .skill-index { color: var(--lime); font-size: .71rem; font-weight: 820; letter-spacing: .14em; }
+    .skill-group h3 { font-size: 1rem; margin: 8px 0 16px; letter-spacing: -.025em; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    /* Education */
+    .education-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .education-card { position: relative; min-height: 289px; padding: 25px; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: var(--radius-md); background: rgba(12,29,25,.58); overflow: hidden; }
+    .education-card::after { content: ""; width: 118px; height: 118px; position: absolute; right: -46px; bottom: -47px; border-radius: 50%; background: radial-gradient(circle, rgba(215,255,101,.16), transparent 67%); }
+    .education-period { color: var(--aqua); letter-spacing: .08em; font-size: .72rem; font-weight: 780; margin-bottom: 25px; }
+    .education-card h3 { font-size: 1.18rem; line-height: 1.1; letter-spacing: -.04em; margin: 0 0 9px; }
+    .education-degree { color: var(--lime); font-size: .82rem; font-weight: 680; margin-bottom: 14px; }
+    .education-card p { color: var(--muted); font-size: .84rem; margin: 0; }
+
+    /* Contact */
+    .contact-section { padding-top: 70px; padding-bottom: 78px; }
+    .contact-box { position: relative; overflow: hidden; padding: clamp(30px, 6vw, 68px); border-radius: 32px; background: linear-gradient(130deg, #d7ff65 0%, #9ce3bb 54%, #70d6cb 100%); color: #062119; }
+    .contact-box::before { content: ""; position: absolute; right: -7%; top: -47%; width: 450px; height: 450px; border: 1px solid rgba(6,33,25,.16); border-radius: 50%; box-shadow: 0 0 0 45px rgba(6,33,25,.055), 0 0 0 90px rgba(6,33,25,.035); }
+    .contact-content { position: relative; display: grid; grid-template-columns: 1.1fr .9fr; align-items: end; gap: 35px; }
+    .contact-box .eyebrow { color: #19533e; }
+    .contact-box h2 { color: #062119; margin-top: 13px; max-width: 700px; }
+    .contact-box p { color: #1d5844; margin: 20px 0 0; max-width: 600px; }
+    .contact-actions { display: grid; gap: 10px; justify-items: start; }
+    .contact-button { color: #effff7; background: #08251b; border: 1px solid #08251b; }
+    .contact-button:hover { background: #11382b; }
+    .contact-meta { font-size: .81rem; color: #265b48; display: flex; gap: 12px; flex-wrap: wrap; }
+    .contact-meta span { display: inline-flex; align-items: center; gap: 6px; }
+
+    footer { border-top: 1px solid var(--line); padding: 24px 0 32px; color: var(--muted); font-size: .77rem; }
+    .footer-content { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .footer-content strong { color: #d0e0d9; font-weight: 650; }
+
+    @media (max-width: 1020px) {
+      .nav-links { display: none; }
+      .hero-grid, .about-layout { grid-template-columns: 1fr; }
+      .hero { padding-top: 52px; }
+      .hero-visual { min-height: 460px; max-width: 650px; width: 100%; }
+      .about-layout { gap: 37px; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .education-grid { grid-template-columns: 1fr; }
+      .education-card { min-height: 230px; }
+    }
+    @media (max-width: 760px) {
+      .container { width: min(var(--max), calc(100% - 32px)); }
+      .header-contact { display: none; }
+      section { padding: 78px 0; }
+      .hero { min-height: auto; padding-bottom: 70px; }
+      .hero h1 { font-size: clamp(3.1rem, 15vw, 5rem); }
+      .hero-grid { gap: 38px; }
+      .hero-visual { min-height: 390px; }
+      .avatar { width: 127px; height: 127px; font-size: 2.8rem; }
+      .system-card.one { top: 23px; left: 18px; }
+      .system-card.two { bottom: 24px; right: 15px; }
+      .section-top { display: block; margin-bottom: 29px; }
+      .section-lead { margin-top: 18px; }
+      .focus-grid, .project-grid { grid-template-columns: 1fr; }
+      .experience-card { grid-template-columns: 1fr; gap: 12px; padding: 27px 0; }
+      .experience-card:hover { padding-left: 0; padding-right: 0; background: transparent; }
+      .experience-tags { justify-content: flex-start; }
+      .experience-period span { display: inline; margin-left: 8px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .contact-content { grid-template-columns: 1fr; }
+      .project-card { min-height: 350px; }
+      .hero-metrics { gap: 10px; }
+      .metric strong { font-size: 1.48rem; }
+      .metric { padding-right: 8px; }
+    }
+    @media (max-width: 410px) {
+      .brand { font-size: .9rem; }
+      .brand-mark { width: 26px; height: 26px; }
+      .hero-actions .button { width: 100%; }
+      .hero-metrics { grid-template-columns: 1fr; }
+      .metric { border-right: 0; border-bottom: 1px solid var(--line); padding: 0 0 12px; }
+      .metric:last-child { border-bottom: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="site-header"></header>
+  <main>
+    <section class="hero" id="home"></section>
+    <section id="about"></section>
+    <section id="experience"></section>
+    <section id="projects"></section>
+    <section id="skills"></section>
+    <section id="education"></section>
+    <section class="contact-section" id="contact"></section>
+  </main>
+  <footer id="footer"></footer>
+
+  <script>
+    const email = "laamrimohamed01@gmail.com";
+    const linkedin = "https://www.linkedin.com/in/mohamed-laamri";
+
+    const visuals = {
+      solar: `<svg viewBox="0 0 520 180" aria-hidden="true"><defs><linearGradient id="sun" x1="0" x2="1"><stop stop-color="#d7ff65"/><stop offset="1" stop-color="#75e2d1"/></linearGradient></defs><path d="M0 139 H520" stroke="rgba(215,255,101,.35)" stroke-width="1"/><circle cx="412" cy="42" r="20" fill="none" stroke="#d7ff65" stroke-width="2"/><g stroke="#d7ff65" stroke-width="1" opacity=".6"><path d="M412 13v-9M412 80v9M383 42h-9M450 42h9M391 21l-7-7M433 63l7 7M433 21l7-7M391 63l-7 7"/></g><path d="M66 129l61-40 60 40z" fill="rgba(117,226,209,.13)" stroke="#75e2d1" stroke-width="2"/><g stroke="#75e2d1" opacity=".6"><path d="M82 118l45-28 45 28M97 107h60M112 97v28M142 97v28"/></g><path d="M216 133c26-44 71-38 98-10 31-33 74-24 97 10" fill="none" stroke="url(#sun)" stroke-width="2" stroke-dasharray="6 7"/><rect x="247" y="83" width="39" height="38" rx="6" fill="rgba(215,255,101,.13)" stroke="#d7ff65"/><path d="M253 94h27M253 102h27M253 110h18" stroke="#d7ff65" stroke-width="2"/></svg>`,
+      agrinode: `<svg viewBox="0 0 520 180" aria-hidden="true"><g fill="none" stroke="#75e2d1" stroke-width="1.4" opacity=".55"><path d="M260 87L110 48M260 87L110 135M260 87L410 48M260 87L410 135" stroke-dasharray="5 5"/></g><g><rect x="231" y="58" width="58" height="58" rx="12" fill="rgba(215,255,101,.15)" stroke="#d7ff65" stroke-width="2"/><path d="M243 77h34M243 87h34M243 97h19" stroke="#d7ff65" stroke-width="2"/></g><g fill="rgba(117,226,209,.13)" stroke="#75e2d1" stroke-width="1.5"><rect x="65" y="27" width="89" height="45" rx="10"/><rect x="65" y="112" width="89" height="45" rx="10"/><rect x="366" y="27" width="89" height="45" rx="10"/><rect x="366" y="112" width="89" height="45" rx="10"/></g><g fill="#75e2d1"><circle cx="90" cy="50" r="5"/><circle cx="90" cy="135" r="5"/><circle cx="391" cy="50" r="5"/><circle cx="391" cy="135" r="5"/></g><g fill="#c4d7d0" font-family="sans-serif" font-size="11"><text x="102" y="54">GREENHOUSE 01</text><text x="102" y="139">GREENHOUSE 02</text><text x="403" y="54">GREENHOUSE 03</text><text x="244" y="137" fill="#d7ff65">MQTT</text></g></svg>`,
+      robot: `<svg viewBox="0 0 520 180" aria-hidden="true"><path d="M50 139H470" stroke="rgba(117,226,209,.25)"/><g fill="rgba(117,226,209,.11)" stroke="#75e2d1" stroke-width="2"><rect x="193" y="71" width="134" height="55" rx="17"/><circle cx="211" cy="132" r="15"/><circle cx="309" cy="132" r="15"/><circle cx="211" cy="65" r="15"/><circle cx="309" cy="65" r="15"/></g><rect x="231" y="42" width="58" height="30" rx="9" fill="rgba(215,255,101,.15)" stroke="#d7ff65" stroke-width="2"/><path d="M260 42V24M245 24h30" stroke="#d7ff65" stroke-width="2"/><path d="M138 93h41M341 93h41" stroke="#d7ff65" stroke-width="2" stroke-dasharray="4 6"/><g fill="#d7ff65"><circle cx="130" cy="93" r="6"/><circle cx="390" cy="93" r="6"/></g><path d="M258 89h4M247 100h26" stroke="#75e2d1" stroke-width="3"/></svg>`,
+      smart: `<svg viewBox="0 0 520 180" aria-hidden="true"><path d="M36 138h448" stroke="rgba(215,255,101,.28)"/><g fill="none" stroke="#75e2d1" stroke-width="2"><path d="M67 132V83h82v49M154 132V62h82v70M241 132V89h82v43M328 132V74h82v58"/></g><g fill="#75e2d1"><circle cx="108" cy="76" r="5"/><circle cx="195" cy="55" r="5"/><circle cx="282" cy="82" r="5"/><circle cx="369" cy="67" r="5"/></g><path d="M108 76v-12M195 55V43M282 82V70M369 67V55" stroke="#75e2d1"/><rect x="213" y="20" width="95" height="34" rx="8" fill="rgba(215,255,101,.14)" stroke="#d7ff65"/><text x="235" y="42" fill="#d7ff65" font-family="sans-serif" font-size="13">PIC16F887</text><path d="M260 54v37M260 91l-70 0M260 91l83 0" stroke="#d7ff65" stroke-width="1.4" stroke-dasharray="4 5"/></svg>`
+    };
+
+    const copy = {
+      fr: {
+        nav: { about: "À propos", experience: "Expérience", projects: "Projets", skills: "Compétences", education: "Formation", contact: "Contact" },
+        headerContact: "Me contacter",
+        hero: {
+          availability: "Disponible pour un stage PFE en 2027",
+          label: "PORTFOLIO / AUTOMATISME",
+          role: "Élève-ingénieur en <strong>Automatismes & Informatique Industrielle</strong>.",
+          copy: "Je conçois des systèmes automatisés, connectés et orientés performance — des API Siemens et interfaces de supervision aux prototypes IoT et systèmes embarqués.",
+          primary: "Me contacter",
+          secondary: "Voir mon parcours",
+          metrics: [["3", "environnements industriels"], ["4", "projets académiques majeurs"], ["2027", "diplôme d’ingénieur prévu"]],
+          system: "AUTOMATION SYSTEMS",
+          status: "SYSTÈME ACTIF",
+          stack: "PLC • SCADA • IIoT"
+        },
+        about: {
+          index: "01 / À PROPOS",
+          title: "Concevoir l’industrie connectée, du terrain à la donnée.",
+          lead: "Un profil à l’intersection de l’<em>automatisme industriel</em>, de la supervision et des systèmes embarqués.",
+          copy: "En 5ᵉ année d’ingénierie à l’EMSI, je développe une approche concrète de l’automatisation : comprendre le procédé, formaliser les besoins, concevoir la logique de commande, superviser le système et valider son fonctionnement. Mes projets combinent contrôle-commande, IoT, électronique et efficacité énergétique.",
+          mail: "Envoyer un e-mail",
+          linkedin: "Voir LinkedIn",
+          cards: [
+            ["01", "Contrôle industriel", "API Siemens, S7-1500, SCL, Ladder, GRAFCET et régulation PI/PID."],
+            ["02", "Supervision & données", "WinCC, Node-RED, tableaux de bord, alertes et historisation d’événements."],
+            ["03", "IoT & embarqué", "ESP32, Arduino, PIC, MQTT, capteurs, actionneurs et communications connectées."],
+            ["04", "Méthode d’ingénierie", "Analyse fonctionnelle, cahier des charges, simulation, validation et documentation technique."]
+          ]
+        },
+        experience: {
+          index: "02 / EXPÉRIENCE",
+          title: "Des projets d’automatisation ancrés dans le réel.",
+          lead: "Expériences en automatisme, contrôle de procédé, supervision et intégration terrain.",
+          items: [
+            { company: "LEONI Maroc", period: "Juil. 2026 — Août 2026", location: "Bouznika, Maroc", role: "Stage PFA | Automatisme industriel & supervision", summary: "Conception et validation en simulation d’un système de coulisse pneumatique pour une ligne d’assemblage de faisceaux électriques.", bullets: ["Programmation d’un automate Siemens S7-1500 sous TIA Portal V20, avec logique de commande en SCL.", "Modélisation GRAFCET, gestion des palettes, comptage, interverrouillages et scénarios de défaut.", "Conception d’une supervision WinCC et d’un dashboard Node-RED pour le suivi des données et alertes.", "Validation des scénarios fonctionnels et de sécurité sous S7-PLCSIM Advanced."], tags: ["TIA Portal", "S7-1500", "SCL", "WinCC", "Node-RED"] },
+            { company: "OCP Group", period: "Juil. 2025 — Août 2025", location: "Jorf Lasfar, Maroc", role: "Stage d’application | Analyse fonctionnelle & régulation de procédé", summary: "Analyse fonctionnelle de l’unité 107A de production d’engrais DAP afin de formaliser les logiques de commande existantes.", bullets: ["Modélisation par GRAFCET des séquences de démarrage des circuits de production.", "Identification des conditions de marche, permissifs et interverrouillages de sécurité.", "Analyse des boucles de régulation PI/PID liées aux variables critiques du procédé.", "Contribution à un référentiel technique pour la maintenance, l’exploitation et la formation."], tags: ["GRAFCET", "PI/PID", "Process Control", "Instrumentation"] },
+            { company: "Optimum Process Maroc", period: "Avr. 2023 — Juil. 2023", location: "Casablanca, Maroc", role: "Stage PFE | Automatisation d’une centrale à béton", summary: "Conception et simulation de l’automatisation d’une centrale à béton dans le cadre de la Licence Professionnelle SACI.", bullets: ["Développement de séquences de dosage et de malaxage en langage Ladder.", "Configuration des entrées/sorties et des tables de variables sous Siemens TIA Portal.", "Création d’une IHM de supervision pour les convoyeurs, le malaxeur et les vannes.", "Validation de la logique de commande sous PLCSIM."], tags: ["Ladder", "PLCSIM", "IHM", "PLC"] },
+            { company: "Optimum Process Maroc", period: "Avr. 2022", location: "Casablanca, Maroc", role: "Stage d’initiation | Installation & maintenance de centrales à béton", summary: "Première immersion terrain en électromécanique, câblage et maintenance d’installations industrielles.", bullets: ["Participation au montage d’armoires électriques et au raccordement de câbles.", "Assistance aux opérations de montage, fixation et maintenance de centrales à béton.", "Découverte des équipements Liebherr et des logiciels RSAI."], tags: ["Câblage", "Électromécanique", "Maintenance"] }
+          ]
+        },
+        projects: {
+          index: "03 / PROJETS",
+          title: "Des systèmes intelligents, pensés pour être utiles.",
+          lead: "Une sélection de projets académiques mêlant automatisation, systèmes embarqués, IoT et énergie.",
+          items: [
+            { visual: "solar", year: "2025 — 2026", title: "Irrigation solaire autonome", text: "Modélisation et commande intelligente d’un système d’irrigation goutte-à-goutte pour une serre de 500 m², avec supervision à distance et dimensionnement photovoltaïque.", tags: ["Arduino Mega", "Node-RED", "Telegram", "Proteus", "PV"] },
+            { visual: "agrinode", year: "2025 — 2026", title: "AgriNode IoT", text: "Plateforme distribuée de gestion multi-serres : ESP32, communication MQTT, supervision centralisée Node-RED, alarmes et contrôle des actionneurs.", tags: ["ESP32", "MQTT", "Node-RED", "IoT", "Proteus"] },
+            { visual: "robot", year: "2024 — 2025", title: "Robot multifonctionnel", text: "Prototype mobile 4WD basé sur Arduino : commande Bluetooth, capteur ultrasonique, évitement d’obstacles, contrôle PID et validation expérimentale.", tags: ["Arduino", "PID", "Bluetooth", "Robotique", "HC-SR04"] },
+            { visual: "smart", year: "2024 — 2025", title: "Smart Irrigation System", text: "Système d’irrigation intelligent multi-zones basé sur PIC16F887, capteurs environnementaux, RTC, électrovannes, Bluetooth et alimentation solaire.", tags: ["PIC16F887", "MikroC", "RTC", "Capteurs", "Solar"] }
+          ]
+        },
+        skills: {
+          index: "04 / COMPÉTENCES",
+          title: "Un stack technique orienté automatisation.",
+          lead: "Des outils choisis pour concevoir, contrôler, superviser et valider des systèmes industriels connectés.",
+          groups: [
+            ["01", "Automatisme & contrôle", ["TIA Portal", "Siemens S7-1500", "API / PLC", "SCL", "Ladder", "GRAFCET", "PI/PID"]],
+            ["02", "Supervision", ["WinCC", "IHM", "Node-RED", "SCADA", "PLCSIM", "Tableaux de bord"]],
+            ["03", "IoT & embarqué", ["ESP32", "Arduino", "PIC16F887", "MQTT", "Capteurs", "Actionneurs"]],
+            ["04", "Ingénierie terrain", ["Analyse fonctionnelle", "Instrumentation", "Pneumatique", "Câblage", "Maintenance", "Documentation"]]
+          ]
+        },
+        education: {
+          index: "05 / FORMATION",
+          title: "Une progression entre terrain, automatisme et innovation.",
+          lead: "Un parcours construit autour des systèmes automatisés, de l’électromécanique et de l’industrie connectée.",
+          items: [
+            { period: "2024 — 2027", school: "EMSI", degree: "Diplôme d’ingénieur", text: "Automatismes et Informatique Industrielle. Formation en contrôle-commande, API, supervision, systèmes embarqués, IoT et réseaux industriels." },
+            { period: "2022 — 2023", school: "FSTM Mohammedia", degree: "Licence professionnelle d’université", text: "Systèmes Automatisés et Contrôle Industriel. Automatisation des procédés, programmation d’automates et supervision industrielle." },
+            { period: "2020 — 2022", school: "Institut Spécialisé Industriel de Mohammedia", degree: "Diplôme de technicien spécialisé", text: "Électromécanique des Systèmes Automatisés : câblage, machines électriques, pneumatique, instrumentation et maintenance." }
+          ]
+        },
+        contact: {
+          index: "06 / CONTACT",
+          title: "Construisons le prochain système intelligent.",
+          copy: "Je recherche un stage PFE de 4 à 6 mois en automatisme industriel, contrôle-commande, informatique industrielle ou Industrie 4.0.",
+          button: "M’envoyer un e-mail",
+          location: "Benslimane, Casablanca-Settat, Maroc",
+          availability: "Disponible pour un PFE en 2027"
+        },
+        footer: "Conçu pour présenter un parcours en automatisme, systèmes embarqués et IoT."
+      },
+      en: {
+        nav: { about: "About", experience: "Experience", projects: "Projects", skills: "Skills", education: "Education", contact: "Contact" },
+        headerContact: "Get in touch",
+        hero: {
+          availability: "Available for a final-year internship in 2027",
+          label: "PORTFOLIO / AUTOMATION",
+          role: "Final-year Engineering Student in <strong>Industrial Automation & Computing</strong>.",
+          copy: "I design automated, connected and performance-driven systems — from Siemens PLCs and supervision interfaces to embedded IoT prototypes and smart-control systems.",
+          primary: "Get in touch",
+          secondary: "View experience",
+          metrics: [["3", "industrial environments"], ["4", "major academic projects"], ["2027", "expected engineering degree"]],
+          system: "AUTOMATION SYSTEMS",
+          status: "SYSTEM ONLINE",
+          stack: "PLC • SCADA • IIoT"
+        },
+        about: {
+          index: "01 / ABOUT",
+          title: "Building connected industry, from field signals to data.",
+          lead: "A profile at the intersection of <em>industrial automation</em>, supervision and embedded systems.",
+          copy: "Currently in my final engineering year at EMSI, I take a practical approach to automation: understand the process, formalize requirements, design control logic, supervise the system and validate its behaviour. My projects combine process control, IoT, electronics and energy efficiency.",
+          mail: "Send an email",
+          linkedin: "View LinkedIn",
+          cards: [
+            ["01", "Industrial control", "Siemens PLCs, S7-1500, SCL, Ladder, GRAFCET and PI/PID control."],
+            ["02", "Supervision & data", "WinCC, Node-RED, dashboards, alarms and event logging."],
+            ["03", "IoT & embedded", "ESP32, Arduino, PIC, MQTT, sensors, actuators and connected communications."],
+            ["04", "Engineering method", "Functional analysis, specifications, simulation, validation and technical documentation."]
+          ]
+        },
+        experience: {
+          index: "02 / EXPERIENCE",
+          title: "Automation projects grounded in real operations.",
+          lead: "Experience in industrial automation, process control, supervision and field integration.",
+          items: [
+            { company: "LEONI Morocco", period: "Jul 2026 — Aug 2026", location: "Bouznika, Morocco", role: "End-of-Year Internship | Industrial Automation & Supervision", summary: "Designed and simulation-validated a pneumatic sliding system for an automotive wire-harness assembly line.", bullets: ["Programmed a Siemens S7-1500 PLC in TIA Portal V20 using SCL control logic.", "Modelled the cycle with GRAFCET, including pallet management, counting, interlocks and fault scenarios.", "Designed a WinCC supervision interface and a Node-RED dashboard for data monitoring and alerts.", "Validated functional and safety scenarios using S7-PLCSIM Advanced."], tags: ["TIA Portal", "S7-1500", "SCL", "WinCC", "Node-RED"] },
+            { company: "OCP Group", period: "Jul 2025 — Aug 2025", location: "Jorf Lasfar, Morocco", role: "Industrial Internship | Functional Analysis & Process Control", summary: "Performed a functional analysis of the 107A DAP fertilizer production unit to document existing control logic.", bullets: ["Modelled start-up sequences for core production circuits using GRAFCET.", "Identified operating conditions, permissives and safety interlocks for industrial equipment.", "Analysed PI/PID control loops linked to critical process variables.", "Contributed to technical documentation for maintenance, operations and training."], tags: ["GRAFCET", "PI/PID", "Process Control", "Instrumentation"] },
+            { company: "Optimum Process Morocco", period: "Apr 2023 — Jul 2023", location: "Casablanca, Morocco", role: "Final-Year Internship | Concrete Batching Plant Automation", summary: "Designed and simulated a concrete batching plant automation system as part of a Professional Bachelor’s degree.", bullets: ["Developed Ladder-based dosing and mixing sequences.", "Configured I/O and variable tables in Siemens TIA Portal.", "Created an HMI for conveyors, mixer and valve supervision.", "Validated control logic using PLCSIM."], tags: ["Ladder", "PLCSIM", "HMI", "PLC"] },
+            { company: "Optimum Process Morocco", period: "Apr 2022", location: "Casablanca, Morocco", role: "Introductory Internship | Concrete Plant Installation & Maintenance", summary: "First hands-on industrial exposure in electromechanics, electrical wiring and maintenance.", bullets: ["Supported electrical control-panel assembly and cable wiring.", "Assisted with installation, fastening and maintenance work on concrete batching plants.", "Gained familiarity with Liebherr equipment and RSAI software."], tags: ["Wiring", "Electromechanics", "Maintenance"] }
+          ]
+        },
+        projects: {
+          index: "03 / PROJECTS",
+          title: "Smart systems designed to be useful.",
+          lead: "A selection of academic projects combining automation, embedded systems, IoT and energy engineering.",
+          items: [
+            { visual: "solar", year: "2025 — 2026", title: "Autonomous Solar Irrigation", text: "Modelled and designed intelligent drip irrigation for a 500 m² greenhouse, with remote supervision and photovoltaic energy sizing.", tags: ["Arduino Mega", "Node-RED", "Telegram", "Proteus", "PV"] },
+            { visual: "agrinode", year: "2025 — 2026", title: "AgriNode IoT", text: "Distributed multi-greenhouse management platform: ESP32, MQTT communication, Node-RED central supervision, alarms and actuator control.", tags: ["ESP32", "MQTT", "Node-RED", "IoT", "Proteus"] },
+            { visual: "robot", year: "2024 — 2025", title: "Multifunctional Robot", text: "Arduino-based 4WD mobile prototype with Bluetooth control, ultrasonic obstacle avoidance, PID control and experimental validation.", tags: ["Arduino", "PID", "Bluetooth", "Robotics", "HC-SR04"] },
+            { visual: "smart", year: "2024 — 2025", title: "Smart Irrigation System", text: "Multi-zone smart irrigation system based on a PIC16F887, environmental sensors, RTC, solenoid valves, Bluetooth and solar power.", tags: ["PIC16F887", "MikroC", "RTC", "Sensors", "Solar"] }
+          ]
+        },
+        skills: {
+          index: "04 / SKILLS",
+          title: "A technical stack for industrial automation.",
+          lead: "Tools selected to design, control, supervise and validate connected industrial systems.",
+          groups: [
+            ["01", "Automation & control", ["TIA Portal", "Siemens S7-1500", "PLC Programming", "SCL", "Ladder", "GRAFCET", "PI/PID"]],
+            ["02", "Supervision", ["WinCC", "HMI", "Node-RED", "SCADA", "PLCSIM", "Dashboards"]],
+            ["03", "IoT & embedded", ["ESP32", "Arduino", "PIC16F887", "MQTT", "Sensors", "Actuators"]],
+            ["04", "Field engineering", ["Functional Analysis", "Instrumentation", "Pneumatics", "Electrical Wiring", "Maintenance", "Documentation"]]
+          ]
+        },
+        education: {
+          index: "05 / EDUCATION",
+          title: "A progression from field work to connected industry.",
+          lead: "An academic path built around automated systems, electromechanics and smart industry.",
+          items: [
+            { period: "2024 — 2027", school: "EMSI", degree: "Engineering Degree", text: "Automation and Industrial Computing. Control systems, PLCs, supervision, embedded systems, IoT and industrial networks." },
+            { period: "2022 — 2023", school: "FSTM Mohammedia", degree: "Professional Bachelor’s Degree", text: "Automated Systems and Industrial Control. Process automation, PLC programming and industrial supervision." },
+            { period: "2020 — 2022", school: "Institut Spécialisé Industriel de Mohammedia", degree: "Specialized Technician Diploma", text: "Electromechanics of Automated Systems: wiring, electrical machines, pneumatics, instrumentation and maintenance." }
+          ]
+        },
+        contact: {
+          index: "06 / CONTACT",
+          title: "Let’s build the next smart system.",
+          copy: "I am seeking a 4–6 month final-year internship in industrial automation, process control, industrial computing or Industry 4.0.",
+          button: "Send me an email",
+          location: "Benslimane, Casablanca-Settat, Morocco",
+          availability: "Available for a final-year internship in 2027"
+        },
+        footer: "Designed to showcase an automation, embedded systems and IoT journey."
+      }
+    };
+
+    let language = "fr";
+    const tag = value => `<span class="tag">${value}</span>`;
+    const sectionTop = (index, title, lead) => `<div class="container section-top reveal"><div><div class="eyebrow">${index}</div><h2>${title}</h2></div><p class="section-lead">${lead}</p></div>`;
+
+    function renderHeader(t) {
+      document.getElementById("site-header").innerHTML = `
+        <div class="container nav">
+          <a class="brand" href="#home" aria-label="Mohamed Laamri — home"><span class="brand-mark">ML</span><span>Mohamed Laamri</span></a>
+          <nav class="nav-links" aria-label="Primary navigation">
+            <a href="#about">${t.nav.about}</a><a href="#experience">${t.nav.experience}</a><a href="#projects">${t.nav.projects}</a><a href="#skills">${t.nav.skills}</a><a href="#education">${t.nav.education}</a>
+          </nav>
+          <div class="nav-right">
+            <div class="language-switcher" aria-label="Language switcher"><button type="button" data-language="fr" class="${language === "fr" ? "active" : ""}">FR</button><button type="button" data-language="en" class="${language === "en" ? "active" : ""}">EN</button></div>
+            <a class="header-contact" href="#contact">${t.headerContact}</a>
+          </div>
+        </div>`;
+    }
+
+    function renderHero(t) {
+      const h = t.hero;
+      document.getElementById("home").innerHTML = `<div class="container hero-grid">
+        <div class="reveal">
+          <div class="availability"><span class="pulse"></span>${h.availability}</div>
+          <div class="eyebrow">${h.label}</div>
+          <h1>Mohamed<br><span class="accent">Laamri</span></h1>
+          <p class="hero-role">${h.role}</p>
+          <p class="hero-copy">${h.copy}</p>
+          <div class="hero-actions"><a class="button primary" href="#contact">${h.primary}<span class="arrow">↗</span></a><a class="button secondary" href="#experience">${h.secondary}<span class="arrow">↓</span></a></div>
+          <div class="hero-metrics">${h.metrics.map(m => `<div class="metric"><strong>${m[0]}</strong><span>${m[1]}</span></div>`).join("")}</div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="visual-shell">
+            <span class="visual-corner">SYS. 04 / 2026</span>
+            <svg class="hero-svg" viewBox="0 0 600 550" aria-hidden="true">
+              <defs><linearGradient id="pathGradient" x1="0" x2="1"><stop stop-color="#d7ff65" stop-opacity=".22"/><stop offset=".5" stop-color="#75e2d1" stop-opacity=".85"/><stop offset="1" stop-color="#d7ff65" stop-opacity=".2"/></linearGradient></defs>
+              <g class="orbit" fill="none" stroke="url(#pathGradient)"><ellipse cx="300" cy="275" rx="230" ry="104" stroke-width="1.25" stroke-dasharray="6 10"/><ellipse cx="300" cy="275" rx="155" ry="215" stroke-width="1" stroke-dasharray="3 12"/></g>
+              <g class="orbit-slow" fill="none" stroke="#75e2d1" stroke-opacity=".24"><circle cx="300" cy="275" r="205" stroke-width="1"/><circle cx="300" cy="275" r="145" stroke-width="1" stroke-dasharray="2 12"/></g>
+              <g fill="#d7ff65"><circle cx="91" cy="274" r="5"/><circle cx="463" cy="151" r="4"/><circle cx="475" cy="398" r="5"/></g>
+              <g fill="#75e2d1"><circle cx="187" cy="82" r="4"/><circle cx="249" cy="473" r="4"/></g>
+              <path d="M91 274C160 220 186 182 236 177M365 179c43-10 68-21 98-28M363 370c45 14 72 19 112 28M248 374c-9 46-10 65 1 99" fill="none" stroke="#75e2d1" stroke-opacity=".48" stroke-width="1.2" stroke-dasharray="4 7"/>
+            </svg>
+            <div class="system-card one"><small>${h.system}</small><strong class="online">${h.status}</strong></div>
+            <div class="avatar-card"><div class="avatar">ML</div><span>${h.stack}</span></div>
+            <div class="system-card two"><small>FOCUS</small><strong class="aqua">${h.system}</strong></div>
+          </div>
+        </div>
+      </div>`;
+    }
+
+    function renderAbout(t) {
+      const a = t.about;
+      document.getElementById("about").innerHTML = `${sectionTop(a.index, a.title, "")}
+        <div class="container about-layout">
+          <div class="reveal"><p class="about-intro">${a.lead}</p><p class="about-copy">${a.copy}</p><div class="about-links"><a class="text-link" href="mailto:${email}">${a.mail} ↗</a><a class="text-link" href="${linkedin}" target="_blank" rel="noopener">${a.linkedin} ↗</a></div></div>
+          <div class="focus-grid reveal">${a.cards.map(card => `<article class="focus-card"><div class="focus-icon">${card[0]}</div><h3>${card[1]}</h3><p>${card[2]}</p></article>`).join("")}</div>
+        </div>`;
+    }
+
+    function renderExperience(t) {
+      const e = t.experience;
+      document.getElementById("experience").innerHTML = `${sectionTop(e.index, e.title, e.lead)}<div class="container experience-list reveal">${e.items.map(item => `<article class="experience-card"><div class="experience-period">${item.period}<span>${item.location}</span></div><div class="experience-body"><h3>${item.company}</h3><p class="experience-role">${item.role}</p><p class="experience-summary">${item.summary}</p><ul class="experience-bullets">${item.bullets.map(b => `<li>${b}</li>`).join("")}</ul></div><div class="experience-tags">${item.tags.map(tag).join("")}</div></article>`).join("")}</div>`;
+    }
+
+    function renderProjects(t) {
+      const p = t.projects;
+      document.getElementById("projects").innerHTML = `${sectionTop(p.index, p.title, p.lead)}<div class="container project-grid">${p.items.map((item, i) => `<article class="project-card reveal" style="--project-color:${["rgba(215,255,101,.25)", "rgba(117,226,209,.25)", "rgba(255,155,107,.22)", "rgba(145,176,255,.22)"][i]}"><div class="project-visual">${visuals[item.visual]}</div><div class="project-year">${item.year}</div><h3>${item.title}</h3><p>${item.text}</p><div class="project-tags">${item.tags.map(tag).join("")}</div></article>`).join("")}</div>`;
+    }
+
+    function renderSkills(t) {
+      const s = t.skills;
+      document.getElementById("skills").innerHTML = `${sectionTop(s.index, s.title, s.lead)}<div class="container skills-grid">${s.groups.map(group => `<article class="skill-group reveal"><div class="skill-index">${group[0]}</div><h3>${group[1]}</h3><div class="skill-list">${group[2].map(tag).join("")}</div></article>`).join("")}</div>`;
+    }
+
+    function renderEducation(t) {
+      const e = t.education;
+      document.getElementById("education").innerHTML = `${sectionTop(e.index, e.title, e.lead)}<div class="container education-grid">${e.items.map(item => `<article class="education-card reveal"><div class="education-period">${item.period}</div><h3>${item.school}</h3><div class="education-degree">${item.degree}</div><p>${item.text}</p></article>`).join("")}</div>`;
+    }
+
+    function renderContact(t) {
+      const c = t.contact;
+      document.getElementById("contact").innerHTML = `<div class="container contact-box reveal"><div class="contact-content"><div><div class="eyebrow">${c.index}</div><h2>${c.title}</h2><p>${c.copy}</p></div><div class="contact-actions"><a class="button contact-button" href="mailto:${email}">${c.button}<span class="arrow">↗</span></a><div class="contact-meta"><span>✉ ${email}</span><span>⌖ ${c.location}</span><span>● ${c.availability}</span></div></div></div></div>`;
+      document.getElementById("footer").innerHTML = `<div class="container footer-content"><span>© ${new Date().getFullYear()} <strong>Mohamed Laamri</strong></span><span>${t.footer}</span></div>`;
+    }
+
+    function setupReveals() {
+      const elements = document.querySelectorAll(".reveal");
+      if (!('IntersectionObserver' in window)) { elements.forEach(el => el.classList.add("visible")); return; }
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("visible"); observer.unobserve(entry.target); } }), { threshold: .12 });
+      elements.forEach(el => observer.observe(el));
+    }
+
+    function render() {
+      const t = copy[language];
+      document.documentElement.lang = language;
+      document.title = language === "fr" ? "Mohamed Laamri | Automatisme industriel" : "Mohamed Laamri | Industrial Automation";
+      renderHeader(t); renderHero(t); renderAbout(t); renderExperience(t); renderProjects(t); renderSkills(t); renderEducation(t); renderContact(t); setupReveals();
+      document.querySelectorAll("[data-language]").forEach(button => button.addEventListener("click", () => { language = button.dataset.language; render(); window.scrollTo({ top: 0, behavior: "smooth" }); }));
+    }
+
+    window.addEventListener("scroll", () => document.getElementById("site-header").classList.toggle("scrolled", window.scrollY > 10), { passive: true });
+    render();
+  </script>
+</body>
+</html>
