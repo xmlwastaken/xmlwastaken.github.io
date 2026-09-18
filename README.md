@@ -1,4 +1,4 @@
-# Mohamed Laamri — Portfolio v3
+# Mohamed Laamri — Portfolio v4
 
 A bilingual, dependency-free, recruiter-focused portfolio for **Industrial Automation, Industrial Computing, Embedded Systems, IoT and smart systems**. It is ready to publish at the GitHub Pages root URL:
 
@@ -29,7 +29,7 @@ xmlwastaken.github.io/
 - Professional portrait extracted from the supplied CV and used in the interface.
 - Five animated certificate cards, each directly clickable to its verified Coursera credential.
 - French / English switcher, responsive mobile navigation, project filters and project-detail modals.
-- Animated signal display, HUD scan, technology ticker, network background, scroll reveal, magnetic controls and subtle 3D hover effects.
+- Animated signal display, HUD scan, live engineering-focus typewriter, technology ticker, network background, scroll reveal, magnetic controls and subtle 3D hover effects.
 - Seven report-backed academic and industrial project case studies.
 
 ## Verified credential links used on the website
@@ -78,3 +78,17 @@ The fifth hyperlink embedded in the supplied CV is visibly labelled **“Intelli
 - Replace the portrait only with an image you are comfortable sharing publicly.
 - Do not upload confidential company documents, internal diagrams, source code, phone numbers or information subject to an NDA.
 - Verify all descriptions and dates before publishing.
+
+## GitHub project repositories
+
+The portfolio now contains a visible **GitHub profile link** and a GitHub-ready status panel for the five public-safe academic projects:
+
+- `agrinode-iot`
+- `autonomous-solar-irrigation`
+- `arduino-multifunctional-robot`
+- `smart-irrigation-system`
+- `concrete-batching-plant-automation`
+
+The companion package `mohamed-laamri-academic-projects-github/` contains five repository starters, public-safe documentation, Mermaid architecture diagrams, source-ready folders, GitHub publishing instructions and the one-line portfolio activation step. The project cards deliberately show **repository ready** rather than a broken link until the corresponding GitHub repository exists.
+
+After creating a public repository with one of the exact names above, add its slug to `publishedRepositories` near the top of `app.js`. The relevant project modal then automatically exposes its direct GitHub link.

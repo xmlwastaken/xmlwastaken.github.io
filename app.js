@@ -2,6 +2,7 @@ const profile = {
   email: "laamrimohamed01@gmail.com",
   linkedin: "https://www.linkedin.com/in/mohamed-laamri",
   portfolio: "https://xmlwastaken.github.io/",
+  github: "https://github.com/xmlwastaken",
   cv: "assets/Mohamed-Laamri-CV.pdf",
   photo: "assets/mohamed-laamri.png"
 };
@@ -64,7 +65,7 @@ const visuals = {
 const content = {
   fr: {
     nav: { about: "À propos", experience: "Expériences", projects: "Projets", certs: "Certificats", skills: "Compétences", education: "Formation", resume: "CV", contact: "Contact" },
-    actions: { viewCV: "Voir le CV", downloadCV: "Télécharger le PDF", credential: "Voir le certificat", verified: "Lien vérifié" },
+    actions: { viewCV: "Voir le CV", downloadCV: "Télécharger le PDF", credential: "Voir le certificat", verified: "Lien vérifié", github: "GitHub" },
     menu: "Menu", close: "Fermer", all: "Tout", industrial: "Industrie", iot: "IoT", embedded: "Embarqué", energy: "Énergie", details: "Détails", closeModal: "Fermer",
     hero: {
       availability: "Disponible pour un stage PFE en 2027",
@@ -74,6 +75,7 @@ const content = {
       text: "Je transforme des besoins industriels en systèmes automatisés, connectés et mesurables — des API Siemens et interfaces de supervision jusqu’aux solutions IoT et systèmes embarqués.",
       primary: "Me contacter", secondary: "Explorer le portfolio", scroll: "Défiler pour explorer",
       resumeLabel: "CV / CURRICULUM VITAE", resumeMeta: "Mohamed Laamri · PDF · Mis à jour en septembre 2026", portraitAlt: "Portrait de Mohamed Laamri",
+      typedPrefix: "FOCUS", typedPhrases: ["Automatisme industriel", "Supervision & IHM", "Systèmes IoT & embarqués", "Contrôle-commande"],
       ticker: ["TIA PORTAL", "S7-1500", "WINCC", "NODE-RED", "MQTT", "INDUSTRIE 4.0"],
       hud: "SYSTÈME CONNECTÉ", status: "EN LIGNE", nodeA: "CONTRÔLE", nodeB: "SUPERVISION", nodeC: "IIoT",
       stats: [["3", "environnements industriels"], ["7", "projets sélectionnés"], ["2027", "diplôme d’ingénieur prévu"]]
@@ -101,14 +103,15 @@ const content = {
     projects: {
       index: "03 / PROJETS", title: "Des projets qui relient automatisme, IoT et impact concret.", lead: "Sept réalisations académiques et industrielles, de la conception de commande à la supervision connectée.",
       categories: { all: "Tout", industrial: "Industrie", iot: "IoT", embedded: "Embarqué", energy: "Énergie" },
+      repoReady: "DÉPÔT GITHUB PRÊT", repoLabel: "DÉPÔT GITHUB PRÉVU", repoCopy: "Le package public est prêt : publiez ce dépôt pour activer son lien direct.", repoButton: "Voir le dépôt GitHub",
       items: [
         { id: "leoni", type: "industrial", year: "2026", label: "PROJET INDUSTRIEL", title: "Coulisse pneumatique automatisée", text: "Automatisation et supervision d’un système de gestion alternée de palettes en fin de ligne d’assemblage automobile.", tags: ["S7-1500", "SCL", "WinCC", "Node-RED"], detail: ["Analyse fonctionnelle du poste et définition des exigences d’ergonomie, sécurité, traçabilité et logistique.", "Cycle GRAFCET à 12 étapes, développé autour d’un bloc fonctionnel générique et réutilisable.", "Supervision locale WinCC, dashboard Node-RED, indicateurs de production et notifications logistiques.", "Validation complète par scénarios sous S7-PLCSIM Advanced avant mise en œuvre terrain."], accent: "#d9ff68" },
         { id: "ocp", type: "industrial", year: "2025", label: "PROJET INDUSTRIEL", title: "Smart Unit 107A — Analyse fonctionnelle", text: "Formalisation des séquences de commande et des boucles de régulation d’une unité de production d’engrais DAP.", tags: ["GRAFCET", "PI/PID", "Sécurité", "Documentation"], detail: ["Analyse a posteriori de la logique de commande d’une unité déjà opérationnelle pour combler un besoin documentaire.", "Modélisation des circuits d’assainissement, stockage, produit fini, broyage, granulation, séchage et réaction.", "Identification des permissifs, interverrouillages et conditions de marche des équipements.", "Analyse de cinq boucles PI/PID : liquide de lavage, ammoniac gazeux et liquide, acide phosphorique et humidité."], accent: "#72e1d0" },
-        { id: "solar", type: "energy", year: "2026", label: "PROJET ACADÉMIQUE", title: "Irrigation solaire autonome", text: "Système d’irrigation intelligent pour une serre de 500 m² : commande, supervision à distance et dimensionnement photovoltaïque.", tags: ["Arduino Mega", "Node-RED", "Telegram", "PV"], detail: ["Conception d’une solution d’irrigation goutte-à-goutte alimentée par énergie solaire pour une serre de poivrons à Benslimane.", "Acquisition de température, humidité, luminosité, niveau d’eau, pH et turbidité pour piloter pompe, électrovannes, ventilation, brumisation et ombrage.", "Développement de quatre modes : manuel, automatique ON/OFF, temporisation RTC et commande intelligente multicritère.", "Simulation sous Proteus, supervision Node-RED, assistant Telegram et dimensionnement hydraulique et énergétique."], accent: "#ffd27b" },
-        { id: "agrinode", type: "iot", year: "2026", label: "PROJET ACADÉMIQUE", title: "AgriNode IoT", text: "Plateforme distribuée de gestion de trois serres intelligentes avec acquisition locale, contrôle automatique et supervision centralisée.", tags: ["ESP32", "MQTT", "Node-RED", "IoT"], detail: ["Architecture distribuée composée d’une unité centrale et de trois serres spécialisées, chacune pilotée localement par un ESP32.", "Acquisition de données environnementales et commande de l’irrigation, ventilation, chauffage, brumisation et ombrage.", "Communication temps réel par MQTT entre les nœuds, une passerelle et la supervision Node-RED.", "Validation en simulation sous Proteus des modes automatique, manuel, alarmes et scénarios environnementaux critiques."], accent: "#72e1d0" },
-        { id: "robot", type: "embedded", year: "2025", label: "PROJET ACADÉMIQUE", title: "Robot mobile multifonctionnel", text: "Prototype 4WD Arduino avec contrôle Bluetooth, détection ultrasonique, évitement d’obstacles et régulation PID.", tags: ["Arduino", "PID", "Bluetooth", "HC-SR04"], detail: ["Conception matérielle et logicielle d’un robot mobile à quatre roues motrices basé sur Arduino UNO.", "Commande sans fil via Bluetooth, lecture de distance par capteur HC-SR04 monté sur servomoteur et stratégie réactive d’évitement.", "Pilotage des moteurs via driver L293D, intégration de PID pour améliorer la stabilité du déplacement.", "Simulation sous Proteus, réalisation physique et tests en environnement contrôlé."], accent: "#ff9a6b" },
-        { id: "smart", type: "embedded", year: "2025", label: "PROJET ACADÉMIQUE", title: "Smart Irrigation System", text: "Irrigation intelligente multi-zones pour jardin domestique, basée sur des capteurs, une logique embarquée et une alimentation solaire.", tags: ["PIC16F887", "MikroC", "RTC", "Capteurs"], detail: ["Système multi-zones basé sur PIC16F887, capteurs d’humidité, de température, de pluie et de niveau d’eau.", "Commande de pompe et électrovannes, modes automatique et manuel, déclenchements programmés par RTC DS1307.", "Affichage local LCD et télécommande Bluetooth pour le suivi et le contrôle des actionneurs.", "Développement sous MikroC, simulation Proteus et tests unitaires sur carte EasyPIC v7."], accent: "#c4a6ff" },
-        { id: "batching", type: "industrial", year: "2023", label: "PROJET DE FIN D’ÉTUDES", title: "Automatisation d’une centrale à béton", text: "Conception et simulation d’un système de dosage, malaxage et supervision de centrale à béton sous Siemens TIA Portal.", tags: ["TIA Portal", "Ladder", "PLCSIM", "IHM"], detail: ["Configuration de l’automate, des entrées/sorties et des tables de variables dans Siemens TIA Portal.", "Programmation Ladder des séquences de dosage du sable, ciment et eau, ainsi que des convoyeurs et du malaxeur.", "Utilisation de comparaison et de mise à l’échelle de valeurs analogiques.", "Création d’une IHM de conduite et validation fonctionnelle de la logique de commande sous PLCSIM."], accent: "#d9ff68" }
+        { id: "solar", type: "energy", year: "2026", label: "PROJET ACADÉMIQUE", title: "Irrigation solaire autonome", text: "Système d’irrigation intelligent pour une serre de 500 m² : commande, supervision à distance et dimensionnement photovoltaïque.", tags: ["Arduino Mega", "Node-RED", "Telegram", "PV"], detail: ["Conception d’une solution d’irrigation goutte-à-goutte alimentée par énergie solaire pour une serre de poivrons à Benslimane.", "Acquisition de température, humidité, luminosité, niveau d’eau, pH et turbidité pour piloter pompe, électrovannes, ventilation, brumisation et ombrage.", "Développement de quatre modes : manuel, automatique ON/OFF, temporisation RTC et commande intelligente multicritère.", "Simulation sous Proteus, supervision Node-RED, assistant Telegram et dimensionnement hydraulique et énergétique."], accent: "#ffd27b", repo: "autonomous-solar-irrigation" },
+        { id: "agrinode", type: "iot", year: "2026", label: "PROJET ACADÉMIQUE", title: "AgriNode IoT", text: "Plateforme distribuée de gestion de trois serres intelligentes avec acquisition locale, contrôle automatique et supervision centralisée.", tags: ["ESP32", "MQTT", "Node-RED", "IoT"], detail: ["Architecture distribuée composée d’une unité centrale et de trois serres spécialisées, chacune pilotée localement par un ESP32.", "Acquisition de données environnementales et commande de l’irrigation, ventilation, chauffage, brumisation et ombrage.", "Communication temps réel par MQTT entre les nœuds, une passerelle et la supervision Node-RED.", "Validation en simulation sous Proteus des modes automatique, manuel, alarmes et scénarios environnementaux critiques."], accent: "#72e1d0", repo: "agrinode-iot" },
+        { id: "robot", type: "embedded", year: "2025", label: "PROJET ACADÉMIQUE", title: "Robot mobile multifonctionnel", text: "Prototype 4WD Arduino avec contrôle Bluetooth, détection ultrasonique, évitement d’obstacles et régulation PID.", tags: ["Arduino", "PID", "Bluetooth", "HC-SR04"], detail: ["Conception matérielle et logicielle d’un robot mobile à quatre roues motrices basé sur Arduino UNO.", "Commande sans fil via Bluetooth, lecture de distance par capteur HC-SR04 monté sur servomoteur et stratégie réactive d’évitement.", "Pilotage des moteurs via driver L293D, intégration de PID pour améliorer la stabilité du déplacement.", "Simulation sous Proteus, réalisation physique et tests en environnement contrôlé."], accent: "#ff9a6b", repo: "arduino-multifunctional-robot" },
+        { id: "smart", type: "embedded", year: "2025", label: "PROJET ACADÉMIQUE", title: "Smart Irrigation System", text: "Irrigation intelligente multi-zones pour jardin domestique, basée sur des capteurs, une logique embarquée et une alimentation solaire.", tags: ["PIC16F887", "MikroC", "RTC", "Capteurs"], detail: ["Système multi-zones basé sur PIC16F887, capteurs d’humidité, de température, de pluie et de niveau d’eau.", "Commande de pompe et électrovannes, modes automatique et manuel, déclenchements programmés par RTC DS1307.", "Affichage local LCD et télécommande Bluetooth pour le suivi et le contrôle des actionneurs.", "Développement sous MikroC, simulation Proteus et tests unitaires sur carte EasyPIC v7."], accent: "#c4a6ff", repo: "smart-irrigation-system" },
+        { id: "batching", type: "industrial", year: "2023", label: "PROJET DE FIN D’ÉTUDES", title: "Automatisation d’une centrale à béton", text: "Conception et simulation d’un système de dosage, malaxage et supervision de centrale à béton sous Siemens TIA Portal.", tags: ["TIA Portal", "Ladder", "PLCSIM", "IHM"], detail: ["Configuration de l’automate, des entrées/sorties et des tables de variables dans Siemens TIA Portal.", "Programmation Ladder des séquences de dosage du sable, ciment et eau, ainsi que des convoyeurs et du malaxeur.", "Utilisation de comparaison et de mise à l’échelle de valeurs analogiques.", "Création d’une IHM de conduite et validation fonctionnelle de la logique de commande sous PLCSIM."], accent: "#d9ff68", repo: "concrete-batching-plant-automation" }
       ]
     },
     certificates: {
@@ -148,7 +151,7 @@ const content = {
   },
   en: {
     nav: { about: "About", experience: "Experience", projects: "Projects", certs: "Certificates", skills: "Skills", education: "Education", resume: "CV", contact: "Contact" },
-    actions: { viewCV: "View CV", downloadCV: "Download PDF", credential: "View credential", verified: "Verified link" },
+    actions: { viewCV: "View CV", downloadCV: "Download PDF", credential: "View credential", verified: "Verified link", github: "GitHub" },
     menu: "Menu", close: "Close", all: "All", industrial: "Industry", iot: "IoT", embedded: "Embedded", energy: "Energy", details: "Details", closeModal: "Close",
     hero: {
       availability: "Available for a 2027 final-year internship",
@@ -158,6 +161,7 @@ const content = {
       text: "I turn industrial requirements into automated, connected and measurable systems — from Siemens PLCs and supervision interfaces to IoT solutions and embedded systems.",
       primary: "Get in touch", secondary: "Explore portfolio", scroll: "Scroll to explore",
       resumeLabel: "CV / RÉSUMÉ", resumeMeta: "Mohamed Laamri · PDF · Updated September 2026", portraitAlt: "Portrait of Mohamed Laamri",
+      typedPrefix: "FOCUS", typedPhrases: ["Industrial Automation", "Supervision & HMI", "IoT & Embedded Systems", "Process Control"],
       ticker: ["TIA PORTAL", "S7-1500", "WINCC", "NODE-RED", "MQTT", "INDUSTRY 4.0"],
       hud: "CONNECTED SYSTEM", status: "ONLINE", nodeA: "CONTROL", nodeB: "SUPERVISION", nodeC: "IIoT",
       stats: [["3", "industrial environments"], ["7", "selected projects"], ["2027", "expected engineering degree"]]
@@ -185,14 +189,15 @@ const content = {
     projects: {
       index: "03 / PROJECTS", title: "Projects that connect automation, IoT and concrete impact.", lead: "Seven academic and industrial projects, from control-system design to connected supervision.",
       categories: { all: "All", industrial: "Industry", iot: "IoT", embedded: "Embedded", energy: "Energy" },
+      repoReady: "GITHUB REPO READY", repoLabel: "PLANNED GITHUB REPOSITORY", repoCopy: "The public package is ready: publish this repository to enable its direct link.", repoButton: "View GitHub repository",
       items: [
         { id: "leoni", type: "industrial", year: "2026", label: "INDUSTRIAL PROJECT", title: "Automated Pneumatic Sliding System", text: "Automation and supervision of an alternating pallet-management system at the end of an automotive assembly line.", tags: ["S7-1500", "SCL", "WinCC", "Node-RED"], detail: ["Performed functional analysis and defined ergonomics, safety, traceability and logistics requirements.", "Designed a 12-step GRAFCET cycle around a reusable generic function block.", "Built WinCC local supervision, a Node-RED dashboard, production indicators and logistics notifications.", "Completed scenario-based validation in S7-PLCSIM Advanced before field implementation."], accent: "#d9ff68" },
         { id: "ocp", type: "industrial", year: "2025", label: "INDUSTRIAL PROJECT", title: "Smart Unit 107A — Functional Analysis", text: "Documentation of control sequences and control loops for a DAP fertilizer production unit.", tags: ["GRAFCET", "PI/PID", "Safety", "Documentation"], detail: ["Performed an as-built functional analysis of an operational unit to address a technical documentation need.", "Modelled gas treatment, storage, finished-product, crushing, granulation, drying and reaction circuits.", "Identified permissives, interlocks and operating conditions for plant equipment.", "Analysed five PI/PID loops: wash liquid, gaseous and liquid ammonia, phosphoric acid and moisture."], accent: "#72e1d0" },
-        { id: "solar", type: "energy", year: "2026", label: "ACADEMIC PROJECT", title: "Autonomous Solar Irrigation", text: "Smart irrigation for a 500 m² greenhouse: control, remote supervision and photovoltaic sizing.", tags: ["Arduino Mega", "Node-RED", "Telegram", "PV"], detail: ["Designed a solar-powered drip-irrigation solution for a pepper greenhouse in Benslimane.", "Acquired temperature, humidity, light, water-level, pH and turbidity data to control pumps, solenoid valves, ventilation, misting and shading.", "Developed four modes: manual, automatic ON/OFF, RTC scheduling and multi-criteria intelligent control.", "Used Proteus simulation, Node-RED supervision, a Telegram assistant, and hydraulic and energy sizing."], accent: "#ffd27b" },
-        { id: "agrinode", type: "iot", year: "2026", label: "ACADEMIC PROJECT", title: "AgriNode IoT", text: "Distributed platform for three smart greenhouses with local acquisition, automatic control and centralized supervision.", tags: ["ESP32", "MQTT", "Node-RED", "IoT"], detail: ["Designed a distributed architecture comprising a central unit and three specialized greenhouses, each locally controlled by an ESP32.", "Collected environmental data and controlled irrigation, ventilation, heating, misting and shading.", "Implemented real-time MQTT communication between nodes, a gateway and Node-RED supervision.", "Validated automatic/manual modes, alarms and critical environmental scenarios in Proteus simulation."], accent: "#72e1d0" },
-        { id: "robot", type: "embedded", year: "2025", label: "ACADEMIC PROJECT", title: "Multifunctional Mobile Robot", text: "Arduino-based 4WD prototype with Bluetooth control, ultrasonic sensing, obstacle avoidance and PID control.", tags: ["Arduino", "PID", "Bluetooth", "HC-SR04"], detail: ["Designed hardware and software for a four-wheel-drive mobile robot based on Arduino UNO.", "Added wireless Bluetooth control, HC-SR04 distance sensing on a servo and reactive obstacle avoidance.", "Controlled motors through an L293D driver and used PID to improve motion stability.", "Performed Proteus simulation, physical assembly and controlled-environment testing."], accent: "#ff9a6b" },
-        { id: "smart", type: "embedded", year: "2025", label: "ACADEMIC PROJECT", title: "Smart Irrigation System", text: "Multi-zone smart irrigation for a home garden, based on sensors, embedded logic and solar power.", tags: ["PIC16F887", "MikroC", "RTC", "Sensors"], detail: ["Built a multi-zone solution based on a PIC16F887, soil-moisture, temperature, rain and water-level sensors.", "Controlled a pump and solenoid valves in manual and automatic modes with RTC DS1307 scheduling.", "Included a local LCD and Bluetooth remote control for monitoring and actuator control.", "Developed in MikroC, simulated in Proteus and unit-tested on an EasyPIC v7 board."], accent: "#c4a6ff" },
-        { id: "batching", type: "industrial", year: "2023", label: "FINAL-YEAR PROJECT", title: "Concrete Batching Plant Automation", text: "Design and simulation of dosing, mixing and supervision for a concrete batching plant in Siemens TIA Portal.", tags: ["TIA Portal", "Ladder", "PLCSIM", "HMI"], detail: ["Configured the PLC, I/O and variable tables in Siemens TIA Portal.", "Programmed Ladder sequences for sand, cement and water dosing, conveyors and mixer control.", "Used comparison and analogue signal-scaling functions.", "Created an HMI and functionally validated the logic in PLCSIM."], accent: "#d9ff68" }
+        { id: "solar", type: "energy", year: "2026", label: "ACADEMIC PROJECT", title: "Autonomous Solar Irrigation", text: "Smart irrigation for a 500 m² greenhouse: control, remote supervision and photovoltaic sizing.", tags: ["Arduino Mega", "Node-RED", "Telegram", "PV"], detail: ["Designed a solar-powered drip-irrigation solution for a pepper greenhouse in Benslimane.", "Acquired temperature, humidity, light, water-level, pH and turbidity data to control pumps, solenoid valves, ventilation, misting and shading.", "Developed four modes: manual, automatic ON/OFF, RTC scheduling and multi-criteria intelligent control.", "Used Proteus simulation, Node-RED supervision, a Telegram assistant, and hydraulic and energy sizing."], accent: "#ffd27b", repo: "autonomous-solar-irrigation" },
+        { id: "agrinode", type: "iot", year: "2026", label: "ACADEMIC PROJECT", title: "AgriNode IoT", text: "Distributed platform for three smart greenhouses with local acquisition, automatic control and centralized supervision.", tags: ["ESP32", "MQTT", "Node-RED", "IoT"], detail: ["Designed a distributed architecture comprising a central unit and three specialized greenhouses, each locally controlled by an ESP32.", "Collected environmental data and controlled irrigation, ventilation, heating, misting and shading.", "Implemented real-time MQTT communication between nodes, a gateway and Node-RED supervision.", "Validated automatic/manual modes, alarms and critical environmental scenarios in Proteus simulation."], accent: "#72e1d0", repo: "agrinode-iot" },
+        { id: "robot", type: "embedded", year: "2025", label: "ACADEMIC PROJECT", title: "Multifunctional Mobile Robot", text: "Arduino-based 4WD prototype with Bluetooth control, ultrasonic sensing, obstacle avoidance and PID control.", tags: ["Arduino", "PID", "Bluetooth", "HC-SR04"], detail: ["Designed hardware and software for a four-wheel-drive mobile robot based on Arduino UNO.", "Added wireless Bluetooth control, HC-SR04 distance sensing on a servo and reactive obstacle avoidance.", "Controlled motors through an L293D driver and used PID to improve motion stability.", "Performed Proteus simulation, physical assembly and controlled-environment testing."], accent: "#ff9a6b", repo: "arduino-multifunctional-robot" },
+        { id: "smart", type: "embedded", year: "2025", label: "ACADEMIC PROJECT", title: "Smart Irrigation System", text: "Multi-zone smart irrigation for a home garden, based on sensors, embedded logic and solar power.", tags: ["PIC16F887", "MikroC", "RTC", "Sensors"], detail: ["Built a multi-zone solution based on a PIC16F887, soil-moisture, temperature, rain and water-level sensors.", "Controlled a pump and solenoid valves in manual and automatic modes with RTC DS1307 scheduling.", "Included a local LCD and Bluetooth remote control for monitoring and actuator control.", "Developed in MikroC, simulated in Proteus and unit-tested on an EasyPIC v7 board."], accent: "#c4a6ff", repo: "smart-irrigation-system" },
+        { id: "batching", type: "industrial", year: "2023", label: "FINAL-YEAR PROJECT", title: "Concrete Batching Plant Automation", text: "Design and simulation of dosing, mixing and supervision for a concrete batching plant in Siemens TIA Portal.", tags: ["TIA Portal", "Ladder", "PLCSIM", "HMI"], detail: ["Configured the PLC, I/O and variable tables in Siemens TIA Portal.", "Programmed Ladder sequences for sand, cement and water dosing, conveyors and mixer control.", "Used comparison and analogue signal-scaling functions.", "Created an HMI and functionally validated the logic in PLCSIM."], accent: "#d9ff68", repo: "concrete-batching-plant-automation" }
       ]
     },
     certificates: {
@@ -234,6 +239,12 @@ const content = {
 
 let language = "fr";
 let projectFilter = "all";
+// Keep this list empty until the matching repository has been created and populated on GitHub.
+// Then add its slug (for example: "agrinode-iot") to turn the portfolio’s repository panel into a live link.
+const publishedRepositories = new Set([]);
+const githubRepositoryURL = slug => `https://github.com/xmlwastaken/${slug}`;
+let typewriterTimeout;
+let typewriterSession = 0;
 
 const el = (selector) => document.querySelector(selector);
 const escapeHTML = (value) => String(value).replace(/[&<>'"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
@@ -250,11 +261,12 @@ function renderHeader(t) {
       <div class="nav-controls">
         <div class="language-switch" aria-label="Language selector"><button class="${language === "fr" ? "active" : ""}" data-language="fr" type="button">FR</button><button class="${language === "en" ? "active" : ""}" data-language="en" type="button">EN</button></div>
         <a class="nav-resume" href="${profile.cv}" target="_blank" rel="noopener" aria-label="${t.actions.viewCV} PDF"><span>CV</span><b>↗</b></a>
+        <a class="nav-github" href="${profile.github}" target="_blank" rel="noopener" aria-label="${t.actions.github}"><span>GH</span><b>↗</b></a>
         <a class="nav-contact magnetic" href="#contact">${t.nav.contact}</a>
         <button class="mobile-menu-button" type="button" aria-label="${t.menu}" aria-expanded="false"><span></span></button>
       </div>
       <nav class="mobile-nav" aria-label="Mobile navigation">
-        <a href="#about">${t.nav.about}</a><a href="#experience">${t.nav.experience}</a><a href="#projects">${t.nav.projects}</a><a href="#certifications">${t.nav.certs}</a><a href="#skills">${t.nav.skills}</a><a href="#education">${t.nav.education}</a><a href="#resume">${t.nav.resume}</a><a href="#contact">${t.nav.contact}</a><a href="${profile.cv}" target="_blank" rel="noopener">${t.actions.viewCV} ↗</a>
+        <a href="#about">${t.nav.about}</a><a href="#experience">${t.nav.experience}</a><a href="#projects">${t.nav.projects}</a><a href="#certifications">${t.nav.certs}</a><a href="#skills">${t.nav.skills}</a><a href="#education">${t.nav.education}</a><a href="#resume">${t.nav.resume}</a><a href="#contact">${t.nav.contact}</a><a href="${profile.cv}" target="_blank" rel="noopener">${t.actions.viewCV} ↗</a><a href="${profile.github}" target="_blank" rel="noopener">${t.actions.github} ↗</a>
       </nav>
     </div>`;
 }
@@ -270,8 +282,9 @@ function renderHero(t) {
         <div class="hero-kicker">${h.kicker}</div>
         <h1 class="hero-title">${h.titleA}<br><span class="outline">${h.titleB.slice(0, 2)}</span><span class="accent">${h.titleB.slice(2)}</span></h1>
         <p class="hero-role">${h.role}</p>
+        <div class="hero-console" aria-label="${h.typedPrefix}: ${h.typedPhrases.join(", ")}"><span class="console-prefix">${h.typedPrefix} /</span><span class="typed-role" data-typed-role></span></div>
         <p class="hero-description">${h.text}</p>
-        <div class="action-row"><a class="button button-primary magnetic" href="#contact">${h.primary}<span class="button-icon">↗</span></a><a class="button" href="#projects">${h.secondary}<span class="button-icon">↓</span></a></div>
+        <div class="action-row"><a class="button button-primary magnetic" href="#contact">${h.primary}<span class="button-icon">↗</span></a><a class="button" href="#projects">${h.secondary}<span class="button-icon">↓</span></a><a class="button button-github" href="${profile.github}" target="_blank" rel="noopener">${t.actions.github}<span class="button-icon">↗</span></a></div>
         <aside class="hero-resume-card" aria-label="${h.resumeLabel}">
           <div class="resume-card-mark"><span>CV</span><i></i></div>
           <div class="resume-card-copy"><small>${h.resumeLabel}</small><strong>${h.resumeMeta}</strong></div>
@@ -299,7 +312,7 @@ function renderAbout(t) {
   const a = t.about;
   el("#about").innerHTML = `${heading(a)}
     <div class="container about-layout">
-      <div class="reveal"><div class="about-profile"><div class="about-photo"><img src="${profile.photo}" alt="${a.profileLabel}" /></div><div><small>${a.profileLabel}</small><strong>${a.profileMeta}</strong></div></div><p class="about-statement">${a.lead}</p><p class="about-copy">${a.text}</p><div class="inline-links"><a class="inline-link" href="mailto:${profile.email}">${a.email} ↗</a><a class="inline-link" href="${profile.linkedin}" target="_blank" rel="noopener">${a.linkedin} ↗</a><a class="inline-link" href="${profile.cv}" target="_blank" rel="noopener">${t.actions.viewCV} ↗</a></div></div>
+      <div class="reveal"><div class="about-profile"><div class="about-photo"><img src="${profile.photo}" alt="${a.profileLabel}" /></div><div><small>${a.profileLabel}</small><strong>${a.profileMeta}</strong></div></div><p class="about-statement">${a.lead}</p><p class="about-copy">${a.text}</p><div class="inline-links"><a class="inline-link" href="mailto:${profile.email}">${a.email} ↗</a><a class="inline-link" href="${profile.linkedin}" target="_blank" rel="noopener">${a.linkedin} ↗</a><a class="inline-link" href="${profile.cv}" target="_blank" rel="noopener">${t.actions.viewCV} ↗</a><a class="inline-link" href="${profile.github}" target="_blank" rel="noopener">${t.actions.github} ↗</a></div></div>
       <div class="focus-grid">${a.cards.map((item, index) => `<article class="focus-card tilt reveal delay-${index + 1}"><div class="focus-symbol">${item[0]}</div><h3>${item[1]}</h3><p>${item[2]}</p></article>`).join("")}</div>
     </div>`;
 }
@@ -324,7 +337,7 @@ function renderProjects(t) {
   const items = projectFilter === "all" ? section.items : section.items.filter(item => item.type === projectFilter);
   el("#projects").innerHTML = `${heading(section)}
     <div class="container"><div class="project-controls" role="tablist" aria-label="Project filters">${filterKeys.map(key => `<button class="filter ${projectFilter === key ? "active" : ""}" type="button" data-filter="${key}">${section.categories[key]}</button>`).join("")}</div>
-      <div class="project-grid">${items.map((item, index) => `<button class="project-card tilt reveal delay-${(index % 4) + 1}" type="button" data-project="${item.id}" style="--card-accent:${item.accent}"><div class="project-visual">${projectVisual(item.id)}</div><div class="project-content"><div class="project-meta"><span>${item.year} · ${item.label}</span><span class="project-open">${t.details} <b>↗</b></span></div><h3>${item.title}</h3><p>${item.text}</p>${chips(item.tags)}</div></button>`).join("")}</div>
+      <div class="project-grid">${items.map((item, index) => `<button class="project-card tilt reveal delay-${(index % 4) + 1}" type="button" data-project="${item.id}" style="--card-accent:${item.accent}"><div class="project-visual">${projectVisual(item.id)}</div><div class="project-content"><div class="project-meta"><span>${item.year} · ${item.label}</span><span class="project-open">${t.details} <b>↗</b></span></div><h3>${item.title}</h3><p>${item.text}</p>${chips(item.tags)}${item.repo ? `<div class="project-repo-status"><span>⌘</span><strong>${section.repoReady}</strong><small>${item.repo}</small></div>` : ""}</div></button>`).join("")}</div>
     </div>`;
 }
 
@@ -357,8 +370,8 @@ function renderResume(t) {
 
 function renderContact(t) {
   const c = t.contact;
-  el("#contact").innerHTML = `<div class="container"><div class="contact-panel reveal"><div class="contact-grid"><div><p class="eyebrow">${c.index}</p><h2>${c.title}</h2><p>${c.text}</p></div><div class="contact-actions"><a class="button magnetic" href="mailto:${profile.email}">${c.button}<span class="button-icon">↗</span></a><div class="contact-resume-actions"><a href="${profile.cv}" target="_blank" rel="noopener">${t.actions.viewCV} ↗</a><a href="${profile.cv}" download="Mohamed-Laamri-CV.pdf">${t.actions.downloadCV} ↓</a></div><button class="copy-email" type="button" data-copy-email data-default="${c.copy}" data-copied="${c.copied}">${c.copy}: ${profile.email}</button><div class="contact-meta"><span><i></i>${c.location}</span><span><i></i>${c.availability}</span></div></div></div></div></div>`;
-  el("#footer").innerHTML = `<div class="container footer-wrap"><span>© ${new Date().getFullYear()} <strong>Mohamed Laamri</strong> · ${c.availability}</span><span>${t.footer} <span class="footer-links"><a href="${profile.cv}" target="_blank" rel="noopener">CV PDF</a><a href="${profile.linkedin}" target="_blank" rel="noopener">LinkedIn</a><a href="${profile.portfolio}" target="_blank" rel="noopener">${t.source}</a></span></span></div>`;
+  el("#contact").innerHTML = `<div class="container"><div class="contact-panel reveal"><div class="contact-grid"><div><p class="eyebrow">${c.index}</p><h2>${c.title}</h2><p>${c.text}</p></div><div class="contact-actions"><a class="button magnetic" href="mailto:${profile.email}">${c.button}<span class="button-icon">↗</span></a><div class="contact-resume-actions"><a href="${profile.cv}" target="_blank" rel="noopener">${t.actions.viewCV} ↗</a><a href="${profile.cv}" download="Mohamed-Laamri-CV.pdf">${t.actions.downloadCV} ↓</a><a href="${profile.github}" target="_blank" rel="noopener">${t.actions.github} ↗</a></div><button class="copy-email" type="button" data-copy-email data-default="${c.copy}" data-copied="${c.copied}">${c.copy}: ${profile.email}</button><div class="contact-meta"><span><i></i>${c.location}</span><span><i></i>${c.availability}</span></div></div></div></div></div>`;
+  el("#footer").innerHTML = `<div class="container footer-wrap"><span>© ${new Date().getFullYear()} <strong>Mohamed Laamri</strong> · ${c.availability}</span><span>${t.footer} <span class="footer-links"><a href="${profile.cv}" target="_blank" rel="noopener">CV PDF</a><a href="${profile.linkedin}" target="_blank" rel="noopener">LinkedIn</a><a href="${profile.github}" target="_blank" rel="noopener">${t.source}</a></span></span></div>`;
 }
 
 function renderAll() {
@@ -370,6 +383,7 @@ function renderAll() {
   observeReveals();
   observeNavigation();
   animateCounters();
+  initTypewriter();
 }
 
 function bindInteractions() {
@@ -449,12 +463,56 @@ function setupMagnetic() {
   });
 }
 
+function initTypewriter() {
+  window.clearTimeout(typewriterTimeout);
+  const target = el("[data-typed-role]");
+  const phrases = content[language].hero.typedPhrases;
+  if (!target || !phrases?.length) return;
+  const session = ++typewriterSession;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    target.textContent = phrases[0];
+    return;
+  }
+  let phraseIndex = 0;
+  let characterIndex = 0;
+  let deleting = false;
+  const tick = () => {
+    if (session !== typewriterSession) return;
+    const phrase = phrases[phraseIndex];
+    if (!deleting) {
+      characterIndex += 1;
+      target.textContent = phrase.slice(0, characterIndex);
+      if (characterIndex === phrase.length) {
+        deleting = true;
+        typewriterTimeout = window.setTimeout(tick, 1450);
+        return;
+      }
+      typewriterTimeout = window.setTimeout(tick, 67);
+      return;
+    }
+    characterIndex -= 1;
+    target.textContent = phrase.slice(0, characterIndex);
+    if (characterIndex === 0) {
+      deleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      typewriterTimeout = window.setTimeout(tick, 250);
+      return;
+    }
+    typewriterTimeout = window.setTimeout(tick, 36);
+  };
+  target.textContent = "";
+  typewriterTimeout = window.setTimeout(tick, 160);
+}
+
 function openProjectModal(id) {
   const t = content[language];
   const item = t.projects.items.find(project => project.id === id);
   if (!item) return;
   const root = el("#modal-root");
-  root.innerHTML = `<div class="modal-backdrop" role="presentation"><article class="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title"><button class="modal-close" type="button" aria-label="${t.closeModal}">×</button><p class="modal-type">${item.year} · ${item.label}</p><h2 id="project-modal-title">${item.title}</h2><p>${item.text}</p><p class="modal-label">${language === "fr" ? "POINTS CLÉS" : "KEY HIGHLIGHTS"}</p><ul class="modal-points">${item.detail.map(point => `<li>${point}</li>`).join("")}</ul><div class="modal-stack"><p class="modal-label">${language === "fr" ? "ENVIRONNEMENT TECHNIQUE" : "TECHNICAL ENVIRONMENT"}</p>${chips(item.tags, true)}</div></article></div>`;
+  const repository = item.repo ? (publishedRepositories.has(item.repo)
+    ? `<a class="modal-repository live" href="${githubRepositoryURL(item.repo)}" target="_blank" rel="noopener"><span>${t.projects.repoButton}</span><code>github.com/xmlwastaken/${item.repo}</code><b>↗</b></a>`
+    : `<div class="modal-repository"><p class="modal-label">${t.projects.repoLabel}</p><code>github.com/xmlwastaken/${item.repo}</code><span>${t.projects.repoCopy}</span></div>`) : "";
+  root.innerHTML = `<div class="modal-backdrop" role="presentation"><article class="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-modal-title"><button class="modal-close" type="button" aria-label="${t.closeModal}">×</button><p class="modal-type">${item.year} · ${item.label}</p><h2 id="project-modal-title">${item.title}</h2><p>${item.text}</p><p class="modal-label">${language === "fr" ? "POINTS CLÉS" : "KEY HIGHLIGHTS"}</p><ul class="modal-points">${item.detail.map(point => `<li>${point}</li>`).join("")}</ul><div class="modal-stack"><p class="modal-label">${language === "fr" ? "ENVIRONNEMENT TECHNIQUE" : "TECHNICAL ENVIRONMENT"}</p>${chips(item.tags, true)}</div>${repository}</article></div>`;
   document.body.style.overflow = "hidden";
   const close = () => { root.innerHTML = ""; document.body.style.overflow = ""; };
   root.querySelector(".modal-close").addEventListener("click", close);

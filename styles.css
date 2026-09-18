@@ -479,3 +479,105 @@ footer { padding: 25px 0 34px; border-top: 1px solid var(--line); color: var(--m
 .hero-resume-card { position: relative; }
 .hero-stats { margin-top: 30px; }
 @media (max-width: 760px) { .hero-content { padding-top: 16px; padding-bottom: 16px; } }
+
+/* Reference-inspired interaction upgrade — implemented in a distinct industrial control-room visual language. */
+.nav-github {
+  min-height: 35px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 9px;
+  border: 1px solid rgba(191,225,211,.2);
+  border-radius: 999px;
+  color: #d8e9e2;
+  background: rgba(255,255,255,.035);
+  font-size: .66rem;
+  font-weight: 850;
+  letter-spacing: .07em;
+  transition: border-color .2s ease, color .2s ease, background .2s ease, transform .2s ease;
+}
+.nav-github b { color: var(--aqua); font-size: .82rem; line-height: 1; }
+.nav-github:hover { border-color: var(--aqua); color: #062019; background: var(--aqua); transform: translateY(-2px); }
+.nav-github:hover b { color: inherit; }
+
+.hero-console {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: min(540px, 100%);
+  min-height: 34px;
+  margin: -4px 0 17px;
+  padding: 7px 10px;
+  overflow: hidden;
+  border: 1px solid rgba(var(--aqua-rgb),.25);
+  border-radius: 8px;
+  color: #cfddd8;
+  background: rgba(4,15,18,.62);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.035);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: .7rem;
+  letter-spacing: .025em;
+}
+.console-prefix { flex: 0 0 auto; color: var(--aqua); font-weight: 800; letter-spacing: .09em; }
+.typed-role { position: relative; min-width: 265px; color: var(--lime); font-weight: 700; white-space: nowrap; }
+.typed-role::after { content: ""; display: inline-block; width: 2px; height: 1.05em; margin-left: 4px; background: var(--lime); vertical-align: -0.18em; animation: typed-caret .86s step-end infinite; }
+@keyframes typed-caret { 50% { opacity: 0; } }
+.button-github { border-color: rgba(var(--aqua-rgb),.35); color: var(--aqua); background: rgba(var(--aqua-rgb),.05); }
+.button-github:hover { border-color: var(--aqua); color: #062019; background: var(--aqua); }
+
+.project-card { min-height: 424px; }
+.project-repo-status {
+  display: grid;
+  grid-template-columns: auto minmax(0,1fr);
+  align-items: center;
+  column-gap: 7px;
+  row-gap: 1px;
+  margin-top: 13px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(191,225,211,.11);
+  color: var(--aqua);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  line-height: 1.2;
+}
+.project-repo-status > span { grid-row: span 2; display: grid; place-items: center; width: 22px; height: 22px; border: 1px solid rgba(var(--aqua-rgb),.3); border-radius: 6px; color: var(--lime); font-size: .84rem; }
+.project-repo-status strong { overflow: hidden; font-size: .58rem; letter-spacing: .10em; text-overflow: ellipsis; white-space: nowrap; }
+.project-repo-status small { overflow: hidden; color: var(--muted); font-size: .61rem; text-overflow: ellipsis; white-space: nowrap; }
+.project-card:hover .project-repo-status > span { animation: repo-pulse 1s ease-in-out infinite alternate; }
+@keyframes repo-pulse { to { color: #07130d; background: var(--lime); box-shadow: 0 0 18px rgba(var(--lime-rgb),.28); transform: translateY(-1px); } }
+.project-card:hover .project-visual svg { transform: scale(1.035) translateY(-2px); }
+.project-visual svg { transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.project-card:hover .project-visual svg path[stroke] { stroke-dasharray: 8 7; animation: project-flow 2.4s linear infinite; }
+@keyframes project-flow { to { stroke-dashoffset: -60; } }
+
+.modal-repository {
+  display: grid;
+  gap: 7px;
+  margin-top: 28px;
+  padding: 16px;
+  border: 1px solid rgba(var(--aqua-rgb),.23);
+  border-radius: 13px;
+  background: rgba(var(--aqua-rgb),.045);
+}
+.modal-repository .modal-label { margin: 0; color: var(--aqua); }
+.modal-repository code { overflow: hidden; color: var(--lime); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size: .76rem; text-overflow: ellipsis; white-space: nowrap; }
+.modal-repository > span { color: var(--muted); font-size: .76rem; line-height: 1.5; }
+.modal-repository.live { position: relative; min-height: 78px; padding-right: 54px; color: inherit; transition: border-color .22s ease, background .22s ease, transform .22s ease; }
+.modal-repository.live:hover { border-color: var(--lime); background: rgba(var(--lime-rgb),.08); transform: translateY(-2px); }
+.modal-repository.live > span { color: var(--aqua); font-size: .67rem; font-weight: 780; }
+.modal-repository.live b { position: absolute; top: 50%; right: 17px; color: var(--lime); font-size: 1.25rem; transform: translateY(-50%); }
+
+@media (max-width: 760px) {
+  .hero-console { margin-top: 0; font-size: .63rem; }
+  .typed-role { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+  .project-card, .project-card:nth-child(3n), .project-card:nth-child(3n + 1) { min-height: 406px; }
+  .project-repo-status { margin-top: 10px; padding-top: 8px; }
+  .project-repo-status strong { font-size: .54rem; }
+  .project-repo-status small { font-size: .58rem; }
+}
+@media (max-width: 405px) {
+  .nav-github { min-width: 37px; justify-content: center; }
+  .hero-console { gap: 5px; padding-right: 7px; padding-left: 7px; }
+  .console-prefix { font-size: .56rem; }
+  .typed-role { font-size: .58rem; }
+  .project-card, .project-card:nth-child(3n), .project-card:nth-child(3n + 1) { min-height: 420px; }
+}
