@@ -413,6 +413,23 @@
       font-size: .78rem; font-family: var(--mono); font-weight: 600;
       color: var(--accent); text-decoration: none;
     }
+    button.proj-link { background: none; border: 0; padding: 0; cursor: pointer; }
+    .proj-link i { transition: transform .2s; }
+    .proj-card:hover .proj-link i, .proj-link:focus-visible i { transform: translateX(3px); }
+    .proj-card:focus-within { border-color: rgba(56,189,248,.5); }
+    .proj-actions { display: flex; align-items: center; gap: .7rem; }
+    .proj-github {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .3rem .7rem; border-radius: 999px;
+      border: 1px solid var(--border); color: var(--muted);
+      font-family: var(--mono); font-size: .74rem; font-weight: 600;
+      text-decoration: none;
+      transition: color .2s, border-color .2s, background .2s, transform .2s;
+    }
+    .proj-github i { font-size: .95rem; }
+    .proj-github:hover { color: var(--text); border-color: var(--accent); background: rgba(56,189,248,.08); transform: translateY(-2px); }
+    .modal-repo { margin-top: 1.4rem; }
+    .modal-repo[hidden] { display: none; }
 
     /* SKILLS */
     #skills { background: var(--bg); }
@@ -452,6 +469,7 @@
       backdrop-filter: blur(8px);
       transition: border-color .25s, transform .25s;
       position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
     }
     .edu-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
@@ -467,6 +485,16 @@
     .edu-school { font-size: 1.1rem; font-weight: 700; margin-bottom: .3rem; }
     .edu-degree { font-size: .88rem; color: var(--accent2); font-weight: 500; margin-bottom: .6rem; }
     .edu-desc { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+    .edu-year, .edu-link { align-self: flex-start; }
+    .edu-link {
+      display: inline-flex; align-items: center; gap: .45rem;
+      margin-top: auto; padding-top: 1.1rem;
+      font-family: var(--mono); font-size: .76rem; font-weight: 600;
+      color: var(--accent); text-decoration: none;
+    }
+    .edu-link .fa-arrow-up-right-from-square { font-size: .68rem; transition: transform .2s; }
+    .edu-link:hover { color: #7dd3fc; }
+    .edu-link:hover .fa-arrow-up-right-from-square { transform: translate(2px, -2px); }
 
     /* CERTIFICATIONS */
     #certifications { background: var(--bg); }
@@ -483,7 +511,12 @@
     .cert-cat { font-family: var(--mono); font-size: .7rem; color: var(--accent); text-transform: uppercase; }
     .cert-badge-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: .4rem; color: var(--text); }
     .cert-badge-card p { font-size: .8rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.5; }
-    .cert-footer { display: flex; justify-content: space-between; font-size: .75rem; color: var(--muted-2); }
+    .cert-badge-card .cert-issuer { font-family: var(--mono); font-size: .72rem; color: var(--muted-2); margin: 0 0 .7rem; line-height: 1.5; }
+    .cert-footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .5rem .75rem; font-size: .75rem; color: var(--muted-2); }
+    .cert-label { display: inline-flex; align-items: center; gap: .4rem; }
+    .cert-verify { display: inline-flex; align-items: center; gap: .4rem; color: var(--accent); font-weight: 600; }
+    .cert-verify i { font-size: .68rem; transition: transform .2s; }
+    a.cert-badge-card:hover .cert-verify i, a.cert-badge-card:focus-visible .cert-verify i { transform: translate(2px, -2px); }
 
     /* CONTACT */
     #contact { background: var(--bg); }
@@ -645,7 +678,7 @@
       .section-wrap { padding: 4.5rem 1.25rem; }
     }
     @media (max-width: 560px) {
-      .proj-grid { grid-template-columns: 1fr; }
+      .proj-grid, .edu-grid, .cert-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .hero-stats { gap: 1.5rem; }
       .tl-item { padding-left: 1.6rem; }
@@ -845,7 +878,7 @@
 
         <div class="proj-grid">
 
-          <article class="proj-card reveal" data-category="iot embarque" data-project="agrinode" tabindex="0" role="button" aria-haspopup="dialog">
+          <article class="proj-card reveal" data-category="iot embarque" data-project="agrinode">
             <div class="proj-visual-box" aria-hidden="true">
               <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice">
                 <rect width="400" height="150" fill="#0a101e"/>
@@ -860,10 +893,10 @@
             <h3 class="proj-name" data-i18n="proj.agrinode.name">AgriNode IoT — Ferme multi-serres intelligentes</h3>
             <p class="proj-desc" data-i18n="proj.agrinode.desc">Plateforme IoT distribuée pour la supervision et le contrôle automatisé de trois serres intelligentes : acquisition capteurs, traitement local, commande des actionneurs et supervision temps réel.</p>
             <div class="proj-tags"><span class="tag">ESP32</span><span class="tag">MQTT</span><span class="tag">Node-RED</span><span class="tag">Proteus ISIS</span><span class="tag highlight" data-i18n="proj.agrinode.award">★ 1ère meilleure réalisation</span></div>
-            <div class="proj-footer"><span class="proj-link"><span data-i18n="proj.details">Détails</span> <i class="fa-solid fa-arrow-right"></i></span><i class="fa-solid fa-seedling" style="color:var(--accent3)"></i></div>
+            <div class="proj-footer"><button class="proj-link" type="button" aria-haspopup="dialog"><span data-i18n="proj.details">Détails</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><i class="fa-solid fa-seedling" style="color:var(--accent3)" aria-hidden="true"></i></div>
           </article>
 
-          <article class="proj-card reveal" data-category="iot embarque" data-project="irrigation" tabindex="0" role="button" aria-haspopup="dialog">
+          <article class="proj-card reveal" data-category="iot embarque" data-project="irrigation">
             <div class="proj-visual-box" aria-hidden="true">
               <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice">
                 <rect width="400" height="150" fill="#0a101e"/>
@@ -878,10 +911,10 @@
             <h3 class="proj-name" data-i18n="proj.irrigation.name">Système d'irrigation solaire autonome</h3>
             <p class="proj-desc" data-i18n="proj.irrigation.desc">Système intelligent d'irrigation avec supervision IoT, modes de commande automatique et dimensionnement hydraulique &amp; énergétique d'une serre.</p>
             <div class="proj-tags"><span class="tag">Arduino Mega</span><span class="tag">Python</span><span class="tag">MQTT</span><span class="tag">Node-RED</span><span class="tag">Proteus ISIS</span></div>
-            <div class="proj-footer"><span class="proj-link"><span data-i18n="proj.details">Détails</span> <i class="fa-solid fa-arrow-right"></i></span><i class="fa-solid fa-solar-panel" style="color:var(--accent3)"></i></div>
+            <div class="proj-footer"><button class="proj-link" type="button" aria-haspopup="dialog"><span data-i18n="proj.details">Détails</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><div class="proj-actions"><a class="proj-github" href="https://github.com/xmlwastaken/smart-irrigation-system" target="_blank" rel="noopener noreferrer" title="GitHub · smart-irrigation-system"><i class="fa-brands fa-github" aria-hidden="true"></i>Code</a><i class="fa-solid fa-solar-panel" style="color:var(--accent3)" aria-hidden="true"></i></div></div>
           </article>
 
-          <article class="proj-card reveal" data-category="embarque" data-project="robot" tabindex="0" role="button" aria-haspopup="dialog">
+          <article class="proj-card reveal" data-category="embarque" data-project="robot">
             <div class="proj-visual-box" aria-hidden="true">
               <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice">
                 <rect width="400" height="150" fill="#0a101e"/>
@@ -895,10 +928,10 @@
             <h3 class="proj-name" data-i18n="proj.robot.name">Robot mobile multifonctionnel</h3>
             <p class="proj-desc" data-i18n="proj.robot.desc">Robot 4WD avec détection d'obstacles et contrôle Bluetooth, développé et validé sous Proteus ISIS.</p>
             <div class="proj-tags"><span class="tag">Arduino UNO</span><span class="tag">Proteus ISIS</span><span class="tag">Bluetooth</span><span class="tag">4WD</span></div>
-            <div class="proj-footer"><span class="proj-link"><span data-i18n="proj.details">Détails</span> <i class="fa-solid fa-arrow-right"></i></span><i class="fa-solid fa-robot" style="color:var(--accent2)"></i></div>
+            <div class="proj-footer"><button class="proj-link" type="button" aria-haspopup="dialog"><span data-i18n="proj.details">Détails</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><div class="proj-actions"><a class="proj-github" href="https://github.com/xmlwastaken/robot-multifonctionnel-arduino" target="_blank" rel="noopener noreferrer" title="GitHub · robot-multifonctionnel-arduino"><i class="fa-brands fa-github" aria-hidden="true"></i>Code</a><i class="fa-solid fa-robot" style="color:var(--accent2)" aria-hidden="true"></i></div></div>
           </article>
 
-          <article class="proj-card reveal" data-category="automatisation" data-project="tri" tabindex="0" role="button" aria-haspopup="dialog">
+          <article class="proj-card reveal" data-category="automatisation" data-project="tri">
             <div class="proj-visual-box" aria-hidden="true">
               <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice">
                 <rect width="400" height="150" fill="#0a101e"/>
@@ -913,7 +946,7 @@
             <h3 class="proj-name" data-i18n="proj.sort.name">Système de tri automatisé</h3>
             <p class="proj-desc" data-i18n="proj.sort.desc">Système de tri séquentiel automatisé basé sur des capteurs industriels : logique de commande et séquencement des opérations sur automate Festo.</p>
             <div class="proj-tags"><span class="tag">Automate Festo</span><span class="tag">FST4</span><span class="tag">Capteurs industriels</span></div>
-            <div class="proj-footer"><span class="proj-link"><span data-i18n="proj.details">Détails</span> <i class="fa-solid fa-arrow-right"></i></span><i class="fa-solid fa-arrow-down-wide-narrow" style="color:var(--accent)"></i></div>
+            <div class="proj-footer"><button class="proj-link" type="button" aria-haspopup="dialog"><span data-i18n="proj.details">Détails</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><i class="fa-solid fa-arrow-down-wide-narrow" style="color:var(--accent)" aria-hidden="true"></i></div>
           </article>
 
         </div>
@@ -968,18 +1001,21 @@
             <h3 class="edu-school">EMSI — Rabat</h3>
             <p class="edu-degree" data-i18n="edu.emsi.degree">Diplôme d'Ingénieur d'État — Automatisme et Informatique Industrielle</p>
             <p class="edu-desc" data-i18n="edu.emsi.desc">École Marocaine des Sciences de l'Ingénieur. 5e année — systèmes automatisés, informatique industrielle, IoT et systèmes intelligents.</p>
+            <a class="edu-link" href="https://emsi.ma/ingenierie-automatisme-et-informatique-industrielle/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-globe" aria-hidden="true"></i>emsi.ma<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
           </article>
           <article class="edu-card reveal">
             <span class="edu-year">2023</span>
             <h3 class="edu-school">FST — Mohammedia</h3>
             <p class="edu-degree" data-i18n="edu.fst.degree">Licence Professionnelle d'Université — Systèmes Automatisés et Contrôle Industriel</p>
             <p class="edu-desc" data-i18n="edu.fst.desc">Faculté des Sciences et Techniques de Mohammedia.</p>
+            <a class="edu-link" href="https://www.fstm.ac.ma/" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-globe" aria-hidden="true"></i>fstm.ac.ma<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
           </article>
           <article class="edu-card reveal">
             <span class="edu-year">2020 — 2022</span>
             <h3 class="edu-school">ISI — Mohammedia</h3>
             <p class="edu-degree" data-i18n="edu.isi.degree">Diplôme de Technicien Spécialisé — Électromécanique des Systèmes Automatisés</p>
             <p class="edu-desc" data-i18n="edu.isi.desc">Institut Spécialisé Industriel de Mohammedia.</p>
+            <a class="edu-link" href="https://www.ofppt.ma/fr" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-globe" aria-hidden="true"></i>ofppt.ma<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
           </article>
         </div>
       </div>
@@ -992,11 +1028,11 @@
         <h2 class="section-title">Certifications</h2>
         <div class="section-line"></div>
         <div class="cert-grid">
-          <article class="cert-badge-card reveal"><div><div class="cert-top"><span class="cert-cat">Machine Learning</span><i class="fa-solid fa-brain" style="color:var(--accent2)"></i></div><h3>Machine Learning in Production</h3><p data-i18n="cert.mlprod">Déploiement et cycle de vie des modèles de machine learning en production.</p></div><div class="cert-footer"><span data-i18n="cert.label">Certificat</span><i class="fa-solid fa-award"></i></div></article>
-          <article class="cert-badge-card reveal"><div><div class="cert-top"><span class="cert-cat" data-i18n="cert.powerCat">Énergie</span><i class="fa-solid fa-bolt" style="color:var(--accent)"></i></div><h3>Electric Power Systems</h3><p data-i18n="cert.power">Systèmes de puissance électrique : production, transport et distribution.</p></div><div class="cert-footer"><span data-i18n="cert.label">Certificat</span><i class="fa-solid fa-award"></i></div></article>
-          <article class="cert-badge-card reveal"><div><div class="cert-top"><span class="cert-cat">IoT · Embedded</span><i class="fa-solid fa-microchip" style="color:var(--accent3)"></i></div><h3>Introduction to the Internet of Things and Embedded Systems</h3><p data-i18n="cert.iot">Fondamentaux de l'IoT et des systèmes embarqués.</p></div><div class="cert-footer"><span data-i18n="cert.label">Certificat</span><i class="fa-solid fa-award"></i></div></article>
-          <article class="cert-badge-card reveal"><div><div class="cert-top"><span class="cert-cat">Machine Learning</span><i class="fa-solid fa-chart-line" style="color:var(--accent2)"></i></div><h3>Machine Learning Foundations: A Case Study Approach</h3><p data-i18n="cert.mlFound">Fondements du machine learning à travers des études de cas.</p></div><div class="cert-footer"><span data-i18n="cert.label">Certificat</span><i class="fa-solid fa-award"></i></div></article>
-          <article class="cert-badge-card reveal"><div><div class="cert-top"><span class="cert-cat" data-i18n="cert.machCat">Fabrication intelligente</span><i class="fa-solid fa-gears" style="color:var(--accent)"></i></div><h3>Intelligent Machining</h3><p data-i18n="cert.mach">Usinage intelligent et fabrication avancée.</p></div><div class="cert-footer"><span data-i18n="cert.label">Certificat</span><i class="fa-solid fa-award"></i></div></article>
+          <a class="cert-badge-card reveal" href="https://www.coursera.org/account/accomplishments/verify/J97MO6AGTEPR" target="_blank" rel="noopener noreferrer"><div><div class="cert-top"><span class="cert-cat">Machine Learning</span><i class="fa-solid fa-brain" style="color:var(--accent2)" aria-hidden="true"></i></div><h3>Machine Learning in Production</h3><p class="cert-issuer">DeepLearning.AI · Coursera · 2026</p><p data-i18n="cert.mlprod">Déploiement et cycle de vie des modèles de machine learning en production.</p></div><div class="cert-footer"><span class="cert-label"><i class="fa-solid fa-award" aria-hidden="true"></i><span data-i18n="cert.label">Certificat</span></span><span class="cert-verify"><span data-i18n="cert.view">Voir le certificat</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span></div></a>
+          <a class="cert-badge-card reveal" href="https://www.coursera.org/account/accomplishments/verify/4KL112SCU2KK" target="_blank" rel="noopener noreferrer"><div><div class="cert-top"><span class="cert-cat" data-i18n="cert.powerCat">Énergie</span><i class="fa-solid fa-bolt" style="color:var(--accent)" aria-hidden="true"></i></div><h3>Electric Power Systems</h3><p class="cert-issuer">University at Buffalo · Coursera · 2026</p><p data-i18n="cert.power">Systèmes de puissance électrique : production, transport et distribution.</p></div><div class="cert-footer"><span class="cert-label"><i class="fa-solid fa-award" aria-hidden="true"></i><span data-i18n="cert.label">Certificat</span></span><span class="cert-verify"><span data-i18n="cert.view">Voir le certificat</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span></div></a>
+          <a class="cert-badge-card reveal" href="https://www.coursera.org/account/accomplishments/verify/6EUZQHKG3LEQ" target="_blank" rel="noopener noreferrer"><div><div class="cert-top"><span class="cert-cat">IoT · Embedded</span><i class="fa-solid fa-microchip" style="color:var(--accent3)" aria-hidden="true"></i></div><h3>Introduction to the Internet of Things and Embedded Systems</h3><p class="cert-issuer">UC Irvine · Coursera · 2025</p><p data-i18n="cert.iot">Fondamentaux de l'IoT et des systèmes embarqués.</p></div><div class="cert-footer"><span class="cert-label"><i class="fa-solid fa-award" aria-hidden="true"></i><span data-i18n="cert.label">Certificat</span></span><span class="cert-verify"><span data-i18n="cert.view">Voir le certificat</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span></div></a>
+          <a class="cert-badge-card reveal" href="https://www.coursera.org/account/accomplishments/verify/QGVYJWKJ1JF9" target="_blank" rel="noopener noreferrer"><div><div class="cert-top"><span class="cert-cat">Machine Learning</span><i class="fa-solid fa-chart-line" style="color:var(--accent2)" aria-hidden="true"></i></div><h3>Machine Learning Foundations: A Case Study Approach</h3><p class="cert-issuer">University of Washington · Coursera · 2025</p><p data-i18n="cert.mlFound">Fondements du machine learning à travers des études de cas.</p></div><div class="cert-footer"><span class="cert-label"><i class="fa-solid fa-award" aria-hidden="true"></i><span data-i18n="cert.label">Certificat</span></span><span class="cert-verify"><span data-i18n="cert.view">Voir le certificat</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span></div></a>
+          <article class="cert-badge-card reveal"><div><div class="cert-top"><span class="cert-cat" data-i18n="cert.machCat">Fabrication intelligente</span><i class="fa-solid fa-gears" style="color:var(--accent)" aria-hidden="true"></i></div><h3>Intelligent Machining</h3><p class="cert-issuer">University at Buffalo · Coursera</p><p data-i18n="cert.mach">Usinage intelligent et fabrication avancée.</p></div><div class="cert-footer"><span class="cert-label"><i class="fa-solid fa-award" aria-hidden="true"></i><span data-i18n="cert.label">Certificat</span></span></div></article>
         </div>
       </div>
     </section>
@@ -1088,6 +1124,7 @@
       <p id="modal-desc"></p>
       <ul id="modal-points"></ul>
       <div class="proj-tags" id="modal-tags"></div>
+      <a class="btn btn-outline modal-repo" id="modal-repo" target="_blank" rel="noopener noreferrer" hidden><i class="fa-brands fa-github" aria-hidden="true"></i><span data-i18n="proj.viewGithub">Voir le code sur GitHub</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
     </div>
   </div>
 
@@ -1135,6 +1172,7 @@
       'proj.label': '// 03. Projects', 'proj.title': 'Academic projects',
       'proj.filterAll': 'All', 'proj.filterEmbedded': 'Embedded', 'proj.filterAutomation': 'Automation',
       'proj.details': 'Details',
+      'proj.viewGithub': 'View the code on GitHub',
       'proj.agrinode.name': 'AgriNode IoT — Smart multi-greenhouse farm',
       'proj.agrinode.desc': 'Distributed IoT platform for the automated supervision and control of three smart greenhouses: sensor acquisition, local processing, actuator control and real-time monitoring.',
       'proj.agrinode.award': '★ Best project award (1st)',
@@ -1161,6 +1199,7 @@
       'cert.mlFound': 'Machine learning foundations through case studies.',
       'cert.machCat': 'Smart manufacturing', 'cert.mach': 'Intelligent machining and advanced manufacturing.',
       'cert.label': 'Certificate',
+      'cert.view': 'View certificate',
       'contact.title': 'Get in touch',
       'contact.intro': 'A final-year internship opportunity, an automation or IoT project, or just want to talk? Message me — I reply quickly.',
       'contact.phone': 'Phone', 'contact.cvLabel': 'Curriculum Vitae',
@@ -1407,6 +1446,14 @@
       data.tags.forEach(function (t) {
         var s = document.createElement('span'); s.className = 'tag'; s.textContent = t; tags.appendChild(s);
       });
+      // "View on GitHub" mirrors the card's repo link, so adding a repo = adding one <a class="proj-github"> to the card
+      var repoBtn = document.getElementById('modal-repo');
+      if (repoBtn) {
+        var srcCard = document.querySelector('.proj-card[data-project="' + key + '"]');
+        var repoLink = srcCard ? srcCard.querySelector('.proj-github') : null;
+        if (repoLink) { repoBtn.href = repoLink.href; repoBtn.hidden = false; }
+        else { repoBtn.removeAttribute('href'); repoBtn.hidden = true; }
+      }
       modal.hidden = false;
       requestAnimationFrame(function () { modal.classList.add('open'); });
       document.body.style.overflow = 'hidden';
@@ -1419,10 +1466,12 @@
       document.body.style.overflow = '';
       if (lastFocus && lastFocus.focus) lastFocus.focus();
     }
+    // Whole card is clickable for mouse users; keyboard users get the real "Détails" <button>
+    // (Enter/Space on a button fires click, which bubbles here). Repo links open normally.
     projCards.forEach(function (card) {
-      card.addEventListener('click', function () { openModal(card.dataset.project, card); });
-      card.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(card.dataset.project, card); }
+      card.addEventListener('click', function (e) {
+        if (e.target.closest && e.target.closest('a')) return;
+        openModal(card.dataset.project, card.querySelector('.proj-link') || card);
       });
     });
     if (modalClose) modalClose.addEventListener('click', closeModal);
