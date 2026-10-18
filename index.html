@@ -6,6 +6,14 @@
   <meta name="description" content="Mohamed Laamri — Industrial Automation, Embedded Systems, IoT and Smart Systems." />
   <meta name="author" content="Mohamed Laamri" />
   <link rel="canonical" href="https://xmlwastaken.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mohamed Laamri | Automatismes & systèmes intelligents" />
+  <meta property="og:description" content="Mohamed Laamri — Industrial Automation, Embedded Systems, IoT and Smart Systems." />
+  <meta property="og:url" content="https://xmlwastaken.github.io/" />
+  <meta property="og:image" content="https://xmlwastaken.github.io/assets/Pic.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#080c14" />
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2338bdf8'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial' font-weight='800' font-size='28' fill='%23080c14'%3EML%3C/text%3E%3C/svg%3E" />
   <title>Mohamed Laamri | Automatismes & systèmes intelligents</title>
 
@@ -483,4 +491,1031 @@
     .contact-links { display: flex; flex-direction: column; gap: 1rem; }
     .contact-link-card {
       display: flex; align-items: center; gap: 1rem;
-      backgroun
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.1rem 1.25rem;
+      text-decoration: none; color: var(--text);
+      backdrop-filter: blur(8px);
+      transition: border-color .25s, transform .25s;
+    }
+    .contact-link-card:hover { border-color: rgba(56,189,248,.45); transform: translateX(4px); }
+    .contact-link-icon {
+      width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+      background: rgba(56,189,248,.08); border: 1px solid var(--border);
+      display: grid; place-items: center; color: var(--accent); font-size: 1rem;
+    }
+    .contact-link-text { display: flex; flex-direction: column; min-width: 0; }
+    .contact-link-label { font-size: .7rem; font-family: var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted-2); }
+    .contact-link-value { font-size: .92rem; font-weight: 600; overflow-wrap: anywhere; }
+    .contact-link-card > .fa-arrow-up-right-from-square { margin-left: auto; color: var(--muted-2); font-size: .8rem; }
+    .contact-intro { color: var(--muted); line-height: 1.8; margin-bottom: 2rem; max-width: 520px; }
+
+    /* Contact form */
+    .contact-form {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.8rem; backdrop-filter: blur(8px);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: .45rem; margin-bottom: 1rem; }
+    .form-group label { font-size: .78rem; font-family: var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+    .form-group input, .form-group textarea {
+      width: 100%; padding: .7rem .9rem; border-radius: 8px;
+      background: rgba(255,255,255,.03); border: 1px solid var(--border);
+      color: var(--text); font-family: 'Inter', sans-serif; font-size: .92rem;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none; border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(56,189,248,.15);
+    }
+    .form-status { font-size: .85rem; color: var(--accent3); margin-top: .8rem; min-height: 1.2em; }
+
+    /* FOOTER */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      background: rgba(8, 12, 20, 0.9);
+      padding: 2rem;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-text { font-size: .82rem; color: var(--muted-2); font-family: var(--mono); }
+    .footer-socials { display: flex; gap: .6rem; }
+    .footer-socials a {
+      width: 36px; height: 36px; border-radius: 8px;
+      display: grid; place-items: center;
+      border: 1px solid var(--border); color: var(--muted);
+      text-decoration: none; transition: all .2s;
+    }
+    .footer-socials a:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
+    #back-to-top {
+      position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 99;
+      width: 42px; height: 42px; border-radius: 10px; border: 1px solid var(--border);
+      background: rgba(13,19,32,.92); color: var(--accent); cursor: pointer;
+      display: grid; place-items: center;
+      opacity: 0; pointer-events: none; transform: translateY(8px);
+      transition: opacity .25s, transform .25s, border-color .2s;
+    }
+    #back-to-top.visible { opacity: 1; pointer-events: auto; transform: none; }
+    #back-to-top:hover { border-color: var(--accent); }
+
+    /* PROJECT MODAL */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(4, 7, 12, 0.78); backdrop-filter: blur(6px);
+      display: grid; place-items: center; padding: 1.25rem;
+      opacity: 0; pointer-events: none; transition: opacity .25s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: auto; }
+    .modal {
+      width: min(640px, 100%); max-height: 86vh; overflow-y: auto;
+      background: var(--bg3); border: 1px solid rgba(56,189,248,.3);
+      border-radius: 16px; padding: 2rem;
+      transform: translateY(12px); transition: transform .25s;
+    }
+    .modal-overlay.open .modal { transform: none; }
+    .modal-close {
+      float: right; width: 36px; height: 36px; border-radius: 8px;
+      border: 1px solid var(--border); background: transparent;
+      color: var(--muted); cursor: pointer; font-size: 1rem;
+    }
+    .modal-close:hover { color: var(--text); border-color: var(--accent); }
+    .modal h3 { font-size: 1.35rem; margin: .4rem 0 .8rem; }
+    .modal p { color: var(--muted); font-size: .92rem; line-height: 1.75; margin-bottom: 1rem; }
+    .modal ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.2rem; }
+    .modal li { color: var(--muted); font-size: .9rem; padding-left: 1.2rem; position: relative; }
+    .modal li::before { content: '▹'; position: absolute; left: 0; color: var(--accent3); }
+
+    /* Scroll reveal (only when JS is available, so content is never hidden without it) */
+    .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .js .reveal.visible { opacity: 1; transform: none; }
+
+    .proj-card.hidden { display: none; }
+
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--accent); outline-offset: 2px;
+    }
+
+    /* KEYFRAMES */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(52,211,153,.5); }
+      70% { box-shadow: 0 0 0 8px rgba(52,211,153,0); }
+      100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); }
+    }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.25rem; }
+      nav.scrolled { padding: .65rem 1.25rem; }
+      .nav-links {
+        position: fixed; top: 0; right: 0; height: 100dvh; width: min(300px, 80vw);
+        flex-direction: column; align-items: flex-start; justify-content: center;
+        gap: 2rem; padding: 2rem;
+        background: rgba(13,19,32,.98); border-left: 1px solid var(--border);
+        transform: translateX(100%); transition: transform .3s ease;
+        z-index: 101;
+      }
+      .nav-links.open { transform: none; }
+      .nav-links a { font-size: 1rem; }
+      .hamburger { display: flex; z-index: 102; padding: .4rem; }
+      .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .hamburger.open span:nth-child(2) { opacity: 0; }
+      .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-content { text-align: center; }
+      .hero-cta, .hero-stats { justify-content: center; }
+      .stat { text-align: center; }
+      .hero-desc { margin-inline: auto; }
+      .hero-photo-wrap { order: -1; justify-self: center; }
+      .hero-photo { width: 220px; height: 275px; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .section-wrap { padding: 4.5rem 1.25rem; }
+    }
+    @media (max-width: 560px) {
+      .proj-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+      .tl-item { padding-left: 1.6rem; }
+      .tl-card { padding: 1.3rem; }
+      .footer-inner { justify-content: center; text-align: center; }
+      .nav-logo { font-size: .85rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .js .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+<canvas id="canvas-bg" aria-hidden="true"></canvas>
+
+  <header>
+    <nav id="navbar" aria-label="Navigation principale">
+      <a class="nav-logo" href="#hero">&lt;<span>Mohamed Laamri</span> /&gt;</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" data-i18n="nav.about">À propos</a></li>
+        <li><a href="#experience" data-i18n="nav.experience">Expérience</a></li>
+        <li><a href="#projects" data-i18n="nav.projects">Projets</a></li>
+        <li><a href="#skills" data-i18n="nav.skills">Compétences</a></li>
+        <li><a href="#education" data-i18n="nav.education">Formation</a></li>
+        <li><a href="#certifications" data-i18n="nav.certifications">Certifications</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="nav-controls">
+        <div class="language-switch" role="group" aria-label="Language / Langue">
+          <button type="button" data-lang="fr" class="active" aria-pressed="true">FR</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button class="hamburger" id="hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section id="hero">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <span class="hero-tag"><span class="dot"></span><span data-i18n="hero.tag">Disponible — Stage PFE 4 à 6 mois</span></span>
+          <p class="hero-kicker" data-i18n="hero.kicker">// Automatisme · IoT · systèmes intelligents</p>
+          <h1 class="hero-name">Mohamed Laamri</h1>
+          <p class="hero-title-wrap"><span id="typed-text"></span><span class="cursor" aria-hidden="true"></span></p>
+          <p class="hero-desc" data-i18n="hero.desc">Étudiant en 5e année en Automatisme et Informatique Industrielle à l'EMSI Rabat, passionné par les systèmes automatisés, l'innovation technologique et les applications industrielles. Je conçois des systèmes de commande, de supervision et des plateformes IoT — du Siemens S7-1500 à l'ESP32.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#projects"><i class="fa-solid fa-diagram-project"></i><span data-i18n="hero.ctaProjects">Voir mes projets</span></a>
+            <a class="btn btn-outline" href="assets/CV.pdf" download><i class="fa-solid fa-download"></i><span data-i18n="hero.ctaCv">Télécharger mon CV</span></a>
+            <a class="btn btn-outline" href="#contact"><i class="fa-regular fa-envelope"></i><span data-i18n="hero.ctaContact">Me contacter</span></a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><div class="stat-n" data-count="4">0</div><div class="stat-l" data-i18n="hero.stat1">Stages industriels</div></div>
+            <div class="stat"><div class="stat-n" data-count="4">0</div><div class="stat-l" data-i18n="hero.stat2">Projets réalisés</div></div>
+            <div class="stat"><div class="stat-n" data-count="5">0</div><div class="stat-l" data-i18n="hero.stat3">Certifications</div></div>
+            <div class="stat"><div class="stat-n" data-count="3">0</div><div class="stat-l" data-i18n="hero.stat4">Langues</div></div>
+          </div>
+        </div>
+        <div class="hero-photo-wrap">
+          <img class="hero-photo" src="assets/Pic.jpg" alt="Mohamed Laamri" width="280" height="350" fetchpriority="high" onerror="this.onerror=null;this.src='assets/Pic.png';" />
+        </div>
+      </div>
+      <div class="scroll-hint" aria-hidden="true"><span data-i18n="hero.scroll">Défiler</span><i class="fa-solid fa-chevron-down"></i></div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about">
+      <div class="section-wrap">
+        <p class="section-label" data-i18n="about.label">// 01. À propos</p>
+        <h2 class="section-title" data-i18n="about.title">À propos de moi</h2>
+        <div class="section-line"></div>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p data-i18n="about.p1">Étudiant en <strong>5e année d'école d'ingénieur en Automatisme et Informatique Industrielle</strong> à l'EMSI Rabat, je me spécialise dans la programmation d'automates, la supervision industrielle et les systèmes IoT embarqués.</p>
+            <p data-i18n="about.p2">Mes expériences chez <strong>LEONI</strong>, au sein du <strong>Groupe OCP</strong> et chez <strong>Optimum Process Maroc</strong> m'ont permis de travailler sur des projets industriels concrets : programmation d'un Siemens S7-1500 sous TIA Portal, supervision WinCC et Node-RED, analyse fonctionnelle et régulation de procédés, automatisation d'une centrale à béton.</p>
+            <p data-i18n="about.p3">Sérieux, curieux et motivé, je suis actuellement à la recherche d'un <strong>stage PFE de 4 à 6 mois</strong> pour mettre en pratique mes connaissances au sein d'un environnement technique stimulant.</p>
+            <div class="about-contacts">
+              <a class="contact-item" href="mailto:Laamrimohamed01@gmail.com"><span class="contact-icon"><i class="fa-regular fa-envelope"></i></span>Laamrimohamed01@gmail.com</a>
+              <a class="contact-item" href="tel:+212615013487"><span class="contact-icon"><i class="fa-solid fa-phone"></i></span>+212 615 013 487</a>
+              <a class="contact-item" href="https://www.linkedin.com/in/mohamed-laamri" target="_blank" rel="noopener noreferrer"><span class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></span>linkedin.com/in/mohamed-laamri</a>
+              <a class="contact-item" href="https://github.com/xmlwastaken" target="_blank" rel="noopener noreferrer"><span class="contact-icon"><i class="fa-brands fa-github"></i></span>github.com/xmlwastaken</a>
+              <span class="contact-item"><span class="contact-icon"><i class="fa-solid fa-location-dot"></i></span><span data-i18n="about.location">Maroc</span></span>
+            </div>
+          </div>
+          <div class="about-right">
+            <article class="info-card reveal">
+              <div class="info-card-symbol">// 01</div>
+              <div class="info-card-head"><i class="fa-solid fa-bullseye" style="color:var(--accent)"></i><span data-i18n="about.card1Title">Objectif actuel</span></div>
+              <p data-i18n="about.card1Text">Stage de fin d'études (PFE) de 4 à 6 mois en automatisation, supervision industrielle ou IoT — pour contribuer à des projets industriels concrets et développer mes compétences terrain.</p>
+            </article>
+            <article class="info-card reveal">
+              <div class="info-card-symbol">// 02</div>
+              <div class="info-card-head"><i class="fa-solid fa-industry" style="color:var(--accent)"></i><span data-i18n="about.card2Title">Domaines d'expertise</span></div>
+              <p data-i18n="about.card2Text">Automatisation &amp; PLC Siemens, supervision WinCC / Node-RED, systèmes embarqués ESP32 / Arduino, communication MQTT et régulation de procédés PI/PID.</p>
+            </article>
+            <article class="info-card reveal">
+              <div class="info-card-symbol">// 03</div>
+              <div class="info-card-head"><i class="fa-solid fa-user-check" style="color:var(--accent)"></i><span data-i18n="about.card3Title">Qualités</span></div>
+              <p data-i18n="about.card3Text">Rigueur et sens des responsabilités, curiosité et apprentissage rapide, esprit d'analyse, autonomie, proactivité et esprit d'équipe.</p>
+            </article>
+            <article class="info-card reveal">
+              <div class="info-card-symbol">// 04</div>
+              <div class="info-card-head"><i class="fa-solid fa-language" style="color:var(--accent)"></i><span data-i18n="about.card4Title">Langues &amp; intérêts</span></div>
+              <p data-i18n="about.card4Text">Arabe, français et anglais. Centres d'intérêt : nouvelles technologies, automatisation &amp; outils numériques, jeux vidéo et musique.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section id="experience">
+      <div class="section-wrap">
+        <p class="section-label" data-i18n="exp.label">// 02. Expérience</p>
+        <h2 class="section-title" data-i18n="exp.title">Expérience professionnelle</h2>
+        <div class="section-line"></div>
+        <div class="timeline">
+
+          <div class="tl-item reveal">
+            <span class="tl-dot"></span>
+            <article class="tl-card">
+              <div class="tl-head"><h3 class="tl-company">LEONI</h3><span class="tl-date">07/2026 — 09/2026</span></div>
+              <p class="tl-role" data-i18n="exp.leoni.role">Stage de fin d'année (PFA) — Automatisation &amp; Supervision Industrielle</p>
+              <p class="tl-loc"><i class="fa-solid fa-location-dot"></i>Bouznika, Maroc</p>
+              <ul class="tl-items">
+                <li data-i18n="exp.leoni.b1">Programmation d'un <strong>Siemens S7-1500</strong> sous <strong>TIA Portal V20</strong> pour l'automatisation d'un système de coulisse pneumatique.</li>
+                <li data-i18n="exp.leoni.b2">Développement de la supervision <strong>WinCC</strong>, d'un dashboard <strong>Node-RED</strong> et validation sous <strong>S7-PLCSIM Advanced</strong>.</li>
+              </ul>
+              <div class="proj-tags"><span class="tag">S7-1500</span><span class="tag">TIA Portal V20</span><span class="tag">WinCC</span><span class="tag">Node-RED</span><span class="tag">S7-PLCSIM Advanced</span></div>
+            </article>
+          </div>
+
+          <div class="tl-item reveal">
+            <span class="tl-dot"></span>
+            <article class="tl-card">
+              <div class="tl-head"><h3 class="tl-company">OCP Group</h3><span class="tl-date">07/2025 — 08/2025</span></div>
+              <p class="tl-role" data-i18n="exp.ocp.role">Stage d'observation — Analyse fonctionnelle &amp; régulation de procédé</p>
+              <p class="tl-loc"><i class="fa-solid fa-location-dot"></i>Jorf Lasfar, Maroc</p>
+              <ul class="tl-items">
+                <li data-i18n="exp.ocp.b1">Analyse fonctionnelle de l'unité <strong>107A</strong> et modélisation des séquences de fonctionnement en <strong>GRAFCET</strong>.</li>
+                <li data-i18n="exp.ocp.b2">Étude des <strong>interverrouillages</strong> et des boucles de régulation <strong>PI/PID</strong>.</li>
+              </ul>
+              <div class="proj-tags"><span class="tag">GRAFCET</span><span class="tag">Régulation PI/PID</span><span class="tag">Analyse fonctionnelle</span></div>
+            </article>
+          </div>
+
+          <div class="tl-item reveal">
+            <span class="tl-dot"></span>
+            <article class="tl-card">
+              <div class="tl-head"><h3 class="tl-company">Optimum Process Maroc</h3><span class="tl-date">04/2023 — 07/2023</span></div>
+              <p class="tl-role" data-i18n="exp.opm1.role">Stage de fin d'études (PFE) — Automatisation d'une centrale à béton</p>
+              <p class="tl-loc"><i class="fa-solid fa-location-dot"></i>Casablanca, Maroc</p>
+              <ul class="tl-items">
+                <li data-i18n="exp.opm1.b1">Conception et programmation d'un système automatisé de <strong>centrale à béton</strong> sous <strong>TIA Portal</strong>.</li>
+                <li data-i18n="exp.opm1.b2">Simulation et validation des séquences de <strong>dosage et malaxage</strong> sous <strong>PLCSIM</strong>.</li>
+              </ul>
+              <div class="proj-tags"><span class="tag">TIA Portal</span><span class="tag">PLCSIM</span><span class="tag">Automatisation</span></div>
+            </article>
+          </div>
+
+          <div class="tl-item reveal">
+            <span class="tl-dot"></span>
+            <article class="tl-card">
+              <div class="tl-head"><h3 class="tl-company">Optimum Process Maroc</h3><span class="tl-date">04/2022</span></div>
+              <p class="tl-role" data-i18n="exp.opm2.role">Stage d'initiation — Maintenance &amp; Instrumentation Industrielle</p>
+              <p class="tl-loc"><i class="fa-solid fa-location-dot"></i>Casablanca, Maroc</p>
+              <ul class="tl-items">
+                <li data-i18n="exp.opm2.b1">Participation à la <strong>maintenance préventive</strong> et à la <strong>calibration des capteurs</strong>.</li>
+                <li data-i18n="exp.opm2.b2"><strong>Câblage et assemblage</strong> d'armoires électriques et pneumatiques.</li>
+              </ul>
+              <div class="proj-tags"><span class="tag">Maintenance</span><span class="tag">Instrumentation</span><span class="tag">Câblage</span></div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects">
+      <div class="section-wrap">
+        <p class="section-label" data-i18n="proj.label">// 03. Projets</p>
+        <h2 class="section-title" data-i18n="proj.title">Projets académiques</h2>
+        <div class="section-line"></div>
+
+        <div class="project-controls" role="group" aria-label="Filtrer les projets">
+          <button type="button" class="filter-btn active" data-filter="all" data-i18n="proj.filterAll">Tout</button>
+          <button type="button" class="filter-btn" data-filter="iot">IoT</button>
+          <button type="button" class="filter-btn" data-filter="embarque" data-i18n="proj.filterEmbedded">Embarqué</button>
+          <button type="button" class="filter-btn" data-filter="automatisation" data-i18n="proj.filterAutomation">Automatisation</button>
+        </div>
+
+        <div class="proj-grid">
+
+          <article class="proj-card reveal" data-category="iot embarque" data-project="agrinode" tabindex="0" role="button" aria-haspopup="dialog">
+            <div class="proj-visual-box" aria-hidden="true">
+              <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice">
+                <rect width="400" height="150" fill="#0a101e"/>
+                <g stroke="#38bdf8" stroke-opacity=".55" fill="none"><path d="M200 75 L70 40 M200 75 L70 110 M200 75 L330 40 M200 75 L330 110"/><circle cx="200" cy="75" r="16"/></g>
+                <g fill="#34d399"><circle cx="70" cy="40" r="7"/><circle cx="70" cy="110" r="7"/></g>
+                <g fill="#818cf8"><circle cx="330" cy="40" r="7"/><circle cx="330" cy="110" r="7"/></g>
+                <circle cx="200" cy="75" r="5" fill="#38bdf8"/>
+                <text x="200" y="140" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="11">ESP32 · MQTT · Node-RED</text>
+              </svg>
+            </div>
+            <div class="proj-top"><span class="proj-label-tag">IoT · Smart Farming</span><span class="proj-year">ESP32</span></div>
+            <h3 class="proj-name" data-i18n="proj.agrinode.name">AgriNode IoT — Ferme multi-serres intelligentes</h3>
+            <p class="proj-desc" data-i18n="proj.agrinode.desc">Plateforme IoT distribuée pour la supervision et le contrôle automatisé de trois serres intelligentes : acquisition capteurs, traitement local, commande des actionneurs et supervision temps réel.</p>
+            <div class="proj-tags"><span class="tag">ESP32</span><span class="tag">MQTT</span><span class="tag">Node-RED</span><span class="tag">Proteus ISIS</span><span class="tag highlight" data-i18n="proj.agrinode.award">★ 1ère meilleure réalisation</span></div>
+            <div class="proj-footer"><span class="proj-link"><span data-i18n="proj.details">Détails</span> <i class="fa-solid fa-arrow-right"></i></span><i class="fa-solid fa-seedling" style="color:var(--accent3)"></i></div>
+          </article>
+
+          <article class="proj-card reveal" data-category="iot embarque" data-project="irrigation" tabindex="0" role="button" aria-haspopup="dialog">
+            <div class="proj-visual-box" aria-hidden="true">
+              <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice">
+                <rect width="400" height="150" fill="#0a101e"/>
+                <circle cx="70" cy="38" r="16" fill="none" stroke="#fbbf24" stroke-width="2"/><g stroke="#fbbf24" stroke-opacity=".6"><path d="M70 12v-8M70 72v-8M44 38h-8M104 38h-8M52 20l-6-6M94 62l-6-6M88 20l6-6M46 62l6-6"/></g>
+                <g stroke="#38bdf8" fill="none" stroke-opacity=".7"><rect x="130" y="28" width="90" height="46" rx="6"/><path d="M130 44h90M130 60h90M160 28v46M190 28v46"/></g>
+                <g stroke="#34d399" fill="none" stroke-width="2"><path d="M300 120c0-30 8-44 26-58 2 24-4 44-26 58z"/><path d="M300 120c0-20-6-30-18-40-2 16 2 30 18 40z"/></g>
+                <path d="M220 50 C 260 50, 270 70, 296 96" stroke="#818cf8" fill="none" stroke-dasharray="5 5"/>
+                <text x="200" y="140" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="11">Arduino Mega · Python · MQTT</text>
+              </svg>
+            </div>
+            <div class="proj-top"><span class="proj-label-tag">IoT · Énergie solaire</span><span class="proj-year">Arduino Mega</span></div>
+            <h3 class="proj-name" data-i18n="proj.irrigation.name">Système d'irrigation solaire autonome</h3>
+            <p class="proj-desc" data-i18n="proj.irrigation.desc">Système intelligent d'irrigation avec supervision IoT, modes de commande automatique et dimensionnement hydraulique &amp; énergétique d'une serre.</p>
+            <div class="proj-tags"><span class="tag">Arduino Mega</span><span class="tag">Python</span><span class="tag">MQTT</span><span class="tag">Node-RED</span><span class="tag">Proteus ISIS</span></div>
+            <div class="proj-footer"><span class="proj-link"><span data-i18n="proj.details">Détails</span> <i class="fa-solid fa-arrow-right"></i></span><i class="fa-solid fa-solar-panel" style="color:var(--accent3)"></i></div>
+          </article>
+
+          <article class="proj-card reveal" data-category="embarque" data-project="robot" tabindex="0" role="button" aria-haspopup="dialog">
+            <div class="proj-visual-box" aria-hidden="true">
+              <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice">
+                <rect width="400" height="150" fill="#0a101e"/>
+                <g fill="none" stroke="#38bdf8" stroke-width="2"><rect x="150" y="52" width="100" height="46" rx="10"/><circle cx="170" cy="106" r="13"/><circle cx="230" cy="106" r="13"/></g>
+                <circle cx="182" cy="72" r="5" fill="#34d399"/><circle cx="218" cy="72" r="5" fill="#34d399"/>
+                <g stroke="#818cf8" fill="none" stroke-opacity=".8"><path d="M268 58a28 28 0 0 1 0 34M284 46a44 44 0 0 1 0 58"/></g>
+                <text x="200" y="140" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="11">Arduino UNO · 4WD · Bluetooth</text>
+              </svg>
+            </div>
+            <div class="proj-top"><span class="proj-label-tag" data-i18n="proj.robot.cat">Robotique · Embarqué</span><span class="proj-year">Arduino UNO</span></div>
+            <h3 class="proj-name" data-i18n="proj.robot.name">Robot mobile multifonctionnel</h3>
+            <p class="proj-desc" data-i18n="proj.robot.desc">Robot 4WD avec détection d'obstacles et contrôle Bluetooth, développé et validé sous Proteus ISIS.</p>
+            <div class="proj-tags"><span class="tag">Arduino UNO</span><span class="tag">Proteus ISIS</span><span class="tag">Bluetooth</span><span class="tag">4WD</span></div>
+            <div class="proj-footer"><span class="proj-link"><span data-i18n="proj.details">Détails</span> <i class="fa-solid fa-arrow-right"></i></span><i class="fa-solid fa-robot" style="color:var(--accent2)"></i></div>
+          </article>
+
+          <article class="proj-card reveal" data-category="automatisation" data-project="tri" tabindex="0" role="button" aria-haspopup="dialog">
+            <div class="proj-visual-box" aria-hidden="true">
+              <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice">
+                <rect width="400" height="150" fill="#0a101e"/>
+                <g stroke="#38bdf8" fill="none" stroke-width="2"><rect x="40" y="84" width="320" height="14" rx="7"/></g>
+                <g fill="#111827" stroke="#64748b"><circle cx="80" cy="112" r="8"/><circle cx="150" cy="112" r="8"/><circle cx="220" cy="112" r="8"/><circle cx="290" cy="112" r="8"/><circle cx="340" cy="112" r="8"/></g>
+                <rect x="86" y="58" width="26" height="26" rx="4" fill="#34d399"/><rect x="176" y="58" width="26" height="26" rx="4" fill="#818cf8"/><rect x="286" y="58" width="26" height="26" rx="4" fill="#38bdf8"/>
+                <path d="M200 18v26M188 34h24" stroke="#fbbf24" stroke-width="2" fill="none"/>
+                <text x="200" y="140" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="11">Festo · FST4</text>
+              </svg>
+            </div>
+            <div class="proj-top"><span class="proj-label-tag" data-i18n="proj.sort.cat">Automatisation</span><span class="proj-year">Festo</span></div>
+            <h3 class="proj-name" data-i18n="proj.sort.name">Système de tri automatisé</h3>
+            <p class="proj-desc" data-i18n="proj.sort.desc">Système de tri séquentiel automatisé basé sur des capteurs industriels : logique de commande et séquencement des opérations sur automate Festo.</p>
+            <div class="proj-tags"><span class="tag">Automate Festo</span><span class="tag">FST4</span><span class="tag">Capteurs industriels</span></div>
+            <div class="proj-footer"><span class="proj-link"><span data-i18n="proj.details">Détails</span> <i class="fa-solid fa-arrow-right"></i></span><i class="fa-solid fa-arrow-down-wide-narrow" style="color:var(--accent)"></i></div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills">
+      <div class="section-wrap">
+        <p class="section-label" data-i18n="skills.label">// 04. Compétences</p>
+        <h2 class="section-title" data-i18n="skills.title">Compétences techniques</h2>
+        <div class="section-line"></div>
+        <div class="skills-grid">
+          <article class="skill-cat reveal">
+            <div class="skill-num">// 01</div>
+            <div class="skill-cat-head"><i class="fa-solid fa-industry" style="color:var(--accent)"></i><span data-i18n="skills.cat1">Automatisation &amp; PLC</span></div>
+            <div class="skill-tags"><span class="stag">TIA Portal</span><span class="stag">WinCC</span><span class="stag">STEP 7</span><span class="stag">Siemens S7-1500</span><span class="stag">S7-PLCSIM Advanced</span><span class="stag">FST4</span></div>
+          </article>
+          <article class="skill-cat reveal">
+            <div class="skill-num">// 02</div>
+            <div class="skill-cat-head"><i class="fa-solid fa-code" style="color:var(--accent)"></i><span data-i18n="skills.cat2">Programmation</span></div>
+            <div class="skill-tags"><span class="stag">GRAFCET</span><span class="stag">Ladder</span><span class="stag">SCL</span><span class="stag">Python</span><span class="stag">C</span><span class="stag">Java</span></div>
+          </article>
+          <article class="skill-cat reveal">
+            <div class="skill-num">// 03</div>
+            <div class="skill-cat-head"><i class="fa-solid fa-drafting-compass" style="color:var(--accent)"></i><span data-i18n="skills.cat3">Simulation &amp; Conception</span></div>
+            <div class="skill-tags"><span class="stag">Proteus ISIS</span><span class="stag">PLCSIM</span><span class="stag">Matlab</span><span class="stag">CATIA</span><span class="stag">Caneco BT</span></div>
+          </article>
+          <article class="skill-cat reveal">
+            <div class="skill-num">// 04</div>
+            <div class="skill-cat-head"><i class="fa-solid fa-network-wired" style="color:var(--accent)"></i><span data-i18n="skills.cat4">IoT &amp; Communication</span></div>
+            <div class="skill-tags"><span class="stag">Node-RED</span><span class="stag">MQTT</span><span class="stag">ESP32</span><span class="stag">Arduino</span><span class="stag">Bluetooth</span></div>
+          </article>
+          <article class="skill-cat reveal">
+            <div class="skill-num">// 05</div>
+            <div class="skill-cat-head"><i class="fa-solid fa-file-lines" style="color:var(--accent)"></i><span data-i18n="skills.cat5">Outils bureautiques</span></div>
+            <div class="skill-tags"><span class="stag">MS Word</span><span class="stag">Excel</span><span class="stag">PowerPoint</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section id="education">
+      <div class="section-wrap">
+        <p class="section-label" data-i18n="edu.label">// 05. Formation</p>
+        <h2 class="section-title" data-i18n="edu.title">Formation</h2>
+        <div class="section-line"></div>
+        <div class="edu-grid">
+          <article class="edu-card current reveal">
+            <span class="edu-year" data-i18n="edu.emsi.year">2024 — Présent</span>
+            <h3 class="edu-school">EMSI — Rabat</h3>
+            <p class="edu-degree" data-i18n="edu.emsi.degree">Diplôme d'Ingénieur d'État — Automatisme et Informatique Industrielle</p>
+            <p class="edu-desc" data-i18n="edu.emsi.desc">École Marocaine des Sciences de l'Ingénieur. 5e année — systèmes automatisés, informatique industrielle, IoT et systèmes intelligents.</p>
+          </article>
+          <article class="edu-card reveal">
+            <span class="edu-year">2023</span>
+            <h3 class="edu-school">FST — Mohammedia</h3>
+            <p class="edu-degree" data-i18n="edu.fst.degree">Licence Professionnelle d'Université — Systèmes Automatisés et Contrôle Industriel</p>
+            <p class="edu-desc" data-i18n="edu.fst.desc">Faculté des Sciences et Techniques de Mohammedia.</p>
+          </article>
+          <article class="edu-card reveal">
+            <span class="edu-year">2020 — 2022</span>
+            <h3 class="edu-school">ISI — Mohammedia</h3>
+            <p class="edu-degree" data-i18n="edu.isi.degree">Diplôme de Technicien Spécialisé — Électromécanique des Systèmes Automatisés</p>
+            <p class="edu-desc" data-i18n="edu.isi.desc">Institut Spécialisé Industriel de Mohammedia.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CERTIFICATIONS ============ -->
+    <section id="certifications">
+      <div class="section-wrap">
+        <p class="section-label">// 06. Certifications</p>
+        <h2 class="section-title">Certifications</h2>
+        <div class="section-line"></div>
+        <div class="cert-grid">
+          <article class="cert-badge-card reveal"><div><div class="cert-top"><span class="cert-cat">Machine Learning</span><i class="fa-solid fa-brain" style="color:var(--accent2)"></i></div><h3>Machine Learning in Production</h3><p data-i18n="cert.mlprod">Déploiement et cycle de vie des modèles de machine learning en production.</p></div><div class="cert-footer"><span data-i18n="cert.label">Certificat</span><i class="fa-solid fa-award"></i></div></article>
+          <article class="cert-badge-card reveal"><div><div class="cert-top"><span class="cert-cat" data-i18n="cert.powerCat">Énergie</span><i class="fa-solid fa-bolt" style="color:var(--accent)"></i></div><h3>Electric Power Systems</h3><p data-i18n="cert.power">Systèmes de puissance électrique : production, transport et distribution.</p></div><div class="cert-footer"><span data-i18n="cert.label">Certificat</span><i class="fa-solid fa-award"></i></div></article>
+          <article class="cert-badge-card reveal"><div><div class="cert-top"><span class="cert-cat">IoT · Embedded</span><i class="fa-solid fa-microchip" style="color:var(--accent3)"></i></div><h3>Introduction to the Internet of Things and Embedded Systems</h3><p data-i18n="cert.iot">Fondamentaux de l'IoT et des systèmes embarqués.</p></div><div class="cert-footer"><span data-i18n="cert.label">Certificat</span><i class="fa-solid fa-award"></i></div></article>
+          <article class="cert-badge-card reveal"><div><div class="cert-top"><span class="cert-cat">Machine Learning</span><i class="fa-solid fa-chart-line" style="color:var(--accent2)"></i></div><h3>Machine Learning Foundations: A Case Study Approach</h3><p data-i18n="cert.mlFound">Fondements du machine learning à travers des études de cas.</p></div><div class="cert-footer"><span data-i18n="cert.label">Certificat</span><i class="fa-solid fa-award"></i></div></article>
+          <article class="cert-badge-card reveal"><div><div class="cert-top"><span class="cert-cat" data-i18n="cert.machCat">Fabrication intelligente</span><i class="fa-solid fa-gears" style="color:var(--accent)"></i></div><h3>Intelligent Machining</h3><p data-i18n="cert.mach">Usinage intelligent et fabrication avancée.</p></div><div class="cert-footer"><span data-i18n="cert.label">Certificat</span><i class="fa-solid fa-award"></i></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact">
+      <div class="section-wrap">
+        <p class="section-label">// 07. Contact</p>
+        <h2 class="section-title" data-i18n="contact.title">Me contacter</h2>
+        <div class="section-line"></div>
+        <div class="contact-grid">
+          <div class="reveal">
+            <p class="contact-intro" data-i18n="contact.intro">Une opportunité de stage PFE, un projet en automatisation ou en IoT, ou simplement envie d'échanger ? Écrivez-moi — je réponds rapidement.</p>
+            <div class="contact-links">
+              <a class="contact-link-card" href="mailto:Laamrimohamed01@gmail.com">
+                <span class="contact-link-icon"><i class="fa-regular fa-envelope"></i></span>
+                <span class="contact-link-text"><span class="contact-link-label">Email</span><span class="contact-link-value">Laamrimohamed01@gmail.com</span></span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <a class="contact-link-card" href="tel:+212615013487">
+                <span class="contact-link-icon"><i class="fa-solid fa-phone"></i></span>
+                <span class="contact-link-text"><span class="contact-link-label" data-i18n="contact.phone">Téléphone</span><span class="contact-link-value">+212 615 013 487</span></span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <a class="contact-link-card" href="https://www.linkedin.com/in/mohamed-laamri" target="_blank" rel="noopener noreferrer">
+                <span class="contact-link-icon"><i class="fa-brands fa-linkedin-in"></i></span>
+                <span class="contact-link-text"><span class="contact-link-label">LinkedIn</span><span class="contact-link-value">Mohamed Laamri</span></span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <a class="contact-link-card" href="https://github.com/xmlwastaken" target="_blank" rel="noopener noreferrer">
+                <span class="contact-link-icon"><i class="fa-brands fa-github"></i></span>
+                <span class="contact-link-text"><span class="contact-link-label">GitHub</span><span class="contact-link-value">@xmlwastaken</span></span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <a class="contact-link-card" href="assets/CV.pdf" download>
+                <span class="contact-link-icon"><i class="fa-solid fa-file-pdf"></i></span>
+                <span class="contact-link-text"><span class="contact-link-label" data-i18n="contact.cvLabel">Curriculum Vitae</span><span class="contact-link-value">CV.pdf</span></span>
+                <i class="fa-solid fa-download"></i>
+              </a>
+            </div>
+          </div>
+
+          <form class="contact-form reveal" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cf-name" data-i18n="contact.name">Nom</label>
+                <input id="cf-name" name="name" type="text" required autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label for="cf-email">Email</label>
+                <input id="cf-email" name="email" type="email" required autocomplete="email" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cf-subject" data-i18n="contact.subject">Sujet</label>
+              <input id="cf-subject" name="subject" type="text" required />
+            </div>
+            <div class="form-group">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" required></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center;"><i class="fa-solid fa-paper-plane"></i><span data-i18n="contact.send">Envoyer le message</span></button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-text">© <span id="year">2026</span> Mohamed Laamri — <span data-i18n="footer.text">Automatisme, IoT &amp; systèmes intelligents.</span></p>
+      <div class="footer-socials">
+        <a href="mailto:Laamrimohamed01@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/mohamed-laamri" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com/xmlwastaken" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" type="button" aria-label="Retour en haut"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Project details modal -->
+  <div class="modal-overlay" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal">
+      <button class="modal-close" id="modal-close" type="button" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+      <span class="proj-label-tag" id="modal-cat"></span>
+      <h3 id="modal-title"></h3>
+      <p id="modal-desc"></p>
+      <ul id="modal-points"></ul>
+      <div class="proj-tags" id="modal-tags"></div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* ---------- i18n (French is the markup default; English below) ---------- */
+    var EN = {
+      'nav.about': 'About', 'nav.experience': 'Experience', 'nav.projects': 'Projects',
+      'nav.skills': 'Skills', 'nav.education': 'Education', 'nav.certifications': 'Certifications',
+      'nav.contact': 'Contact',
+      'hero.tag': 'Available — 4 to 6-month final-year internship (PFE)',
+      'hero.kicker': '// Automation · IoT · Smart systems',
+      'hero.desc': '5th-year engineering student in Industrial Automation & Computing at EMSI Rabat, passionate about automated systems, technological innovation and industrial applications. I design control and supervision systems and IoT platforms — from the Siemens S7-1500 to the ESP32.',
+      'hero.ctaProjects': 'View my projects', 'hero.ctaCv': 'Download my CV', 'hero.ctaContact': 'Contact me',
+      'hero.stat1': 'Industry internships', 'hero.stat2': 'Projects built', 'hero.stat3': 'Certifications', 'hero.stat4': 'Languages',
+      'hero.scroll': 'Scroll',
+      'about.label': '// 01. About', 'about.title': 'About me',
+      'about.p1': 'A <strong>5th-year engineering student in Industrial Automation &amp; Computing</strong> at EMSI Rabat, I specialise in PLC programming, industrial supervision and embedded IoT systems.',
+      'about.p2': 'My experience at <strong>LEONI</strong>, <strong>OCP Group</strong> and <strong>Optimum Process Maroc</strong> gave me hands-on industrial projects: programming a Siemens S7-1500 with TIA Portal, WinCC and Node-RED supervision, functional analysis and process control, and automating a concrete batching plant.',
+      'about.p3': 'Serious, curious and motivated, I am currently looking for a <strong>4 to 6-month final-year internship (PFE)</strong> to put my skills into practice in a stimulating technical environment.',
+      'about.location': 'Morocco',
+      'about.card1Title': 'Current goal',
+      'about.card1Text': 'A 4 to 6-month final-year internship (PFE) in automation, industrial supervision or IoT — to contribute to concrete industrial projects and grow my field skills.',
+      'about.card2Title': 'Areas of expertise',
+      'about.card2Text': 'Automation &amp; Siemens PLCs, WinCC / Node-RED supervision, ESP32 / Arduino embedded systems, MQTT communication and PI/PID process control.',
+      'about.card3Title': 'Strengths',
+      'about.card3Text': 'Rigour and sense of responsibility, curiosity and fast learning, analytical mindset, autonomy, proactivity and teamwork.',
+      'about.card4Title': 'Languages &amp; interests',
+      'about.card4Text': 'Arabic, French and English. Interests: new technologies, automation &amp; digital tools, video games and music.',
+      'exp.label': '// 02. Experience', 'exp.title': 'Professional experience',
+      'exp.leoni.role': 'End-of-year internship (PFA) — Industrial Automation &amp; Supervision',
+      'exp.leoni.b1': 'Programmed a <strong>Siemens S7-1500</strong> in <strong>TIA Portal V20</strong> to automate a pneumatic slide system.',
+      'exp.leoni.b2': 'Developed <strong>WinCC</strong> supervision, a <strong>Node-RED</strong> dashboard, and validated everything in <strong>S7-PLCSIM Advanced</strong>.',
+      'exp.ocp.role': 'Observation internship — Functional analysis &amp; process control',
+      'exp.ocp.b1': 'Functional analysis of unit <strong>107A</strong> and modelling of its operating sequences in <strong>GRAFCET</strong> (SFC).',
+      'exp.ocp.b2': 'Studied <strong>safety interlocks</strong> and <strong>PI/PID</strong> control loops.',
+      'exp.opm1.role': 'Final-year internship (PFE) — Automation of a concrete batching plant',
+      'exp.opm1.b1': 'Designed and programmed an automated <strong>concrete batching plant</strong> system in <strong>TIA Portal</strong>.',
+      'exp.opm1.b2': 'Simulated and validated the <strong>batching and mixing</strong> sequences in <strong>PLCSIM</strong>.',
+      'exp.opm2.role': 'Introductory internship — Industrial Maintenance &amp; Instrumentation',
+      'exp.opm2.b1': 'Took part in <strong>preventive maintenance</strong> and <strong>sensor calibration</strong>.',
+      'exp.opm2.b2': '<strong>Wired and assembled</strong> electrical and pneumatic cabinets.',
+      'proj.label': '// 03. Projects', 'proj.title': 'Academic projects',
+      'proj.filterAll': 'All', 'proj.filterEmbedded': 'Embedded', 'proj.filterAutomation': 'Automation',
+      'proj.details': 'Details',
+      'proj.agrinode.name': 'AgriNode IoT — Smart multi-greenhouse farm',
+      'proj.agrinode.desc': 'Distributed IoT platform for the automated supervision and control of three smart greenhouses: sensor acquisition, local processing, actuator control and real-time monitoring.',
+      'proj.agrinode.award': '★ Best project award (1st)',
+      'proj.irrigation.name': 'Autonomous solar irrigation system',
+      'proj.irrigation.desc': 'Smart irrigation system with IoT supervision, automatic control modes, and hydraulic &amp; energy sizing for a greenhouse.',
+      'proj.robot.cat': 'Robotics · Embedded', 'proj.robot.name': 'Multifunction mobile robot',
+      'proj.robot.desc': '4WD robot with obstacle detection and Bluetooth control, developed and validated in Proteus ISIS.',
+      'proj.sort.cat': 'Automation', 'proj.sort.name': 'Automated sorting system',
+      'proj.sort.desc': 'Automated sequential sorting system based on industrial sensors: control logic and operation sequencing on a Festo PLC.',
+      'skills.label': '// 04. Skills', 'skills.title': 'Technical skills',
+      'skills.cat1': 'Automation &amp; PLC', 'skills.cat2': 'Programming', 'skills.cat3': 'Simulation &amp; Design',
+      'skills.cat4': 'IoT &amp; Communication', 'skills.cat5': 'Office tools',
+      'edu.label': '// 05. Education', 'edu.title': 'Education',
+      'edu.emsi.year': '2024 — Present',
+      'edu.emsi.degree': 'State Engineering Degree — Industrial Automation &amp; Computing',
+      'edu.emsi.desc': 'École Marocaine des Sciences de l\'Ingénieur (EMSI). 5th year — automated systems, industrial computing, IoT and smart systems.',
+      'edu.fst.degree': 'Professional Bachelor\'s Degree — Automated Systems &amp; Industrial Control',
+      'edu.fst.desc': 'Faculty of Science and Technology of Mohammedia.',
+      'edu.isi.degree': 'Specialized Technician Diploma — Electromechanics of Automated Systems',
+      'edu.isi.desc': 'Institut Spécialisé Industriel of Mohammedia.',
+      'cert.mlprod': 'Deploying and managing the lifecycle of machine learning models in production.',
+      'cert.powerCat': 'Energy', 'cert.power': 'Electric power systems: generation, transmission and distribution.',
+      'cert.iot': 'Fundamentals of IoT and embedded systems.',
+      'cert.mlFound': 'Machine learning foundations through case studies.',
+      'cert.machCat': 'Smart manufacturing', 'cert.mach': 'Intelligent machining and advanced manufacturing.',
+      'cert.label': 'Certificate',
+      'contact.title': 'Get in touch',
+      'contact.intro': 'A final-year internship opportunity, an automation or IoT project, or just want to talk? Message me — I reply quickly.',
+      'contact.phone': 'Phone', 'contact.cvLabel': 'Curriculum Vitae',
+      'contact.name': 'Name', 'contact.subject': 'Subject', 'contact.send': 'Send message',
+      'footer.text': 'Automation, IoT &amp; smart systems.'
+    };
+
+    var TYPED = {
+      fr: ['Ingénieur Automatisme & Informatique Industrielle', 'Spécialiste PLC Siemens S7-1500', 'Développeur IoT & Systèmes Embarqués', 'Supervision WinCC & Node-RED'],
+      en: ['Industrial Automation & Computing Engineer', 'Siemens S7-1500 PLC Specialist', 'IoT & Embedded Systems Developer', 'WinCC & Node-RED Supervision']
+    };
+
+    var PROJECT_DETAILS = {
+      agrinode: {
+        cat: { fr: 'IoT · Smart Farming', en: 'IoT · Smart Farming' },
+        title: { fr: 'AgriNode IoT — Ferme multi-serres intelligentes', en: 'AgriNode IoT — Smart multi-greenhouse farm' },
+        desc: {
+          fr: 'Conception d\'une plateforme IoT distribuée pour la supervision et le contrôle automatisé de trois serres intelligentes.',
+          en: 'Design of a distributed IoT platform for the automated supervision and control of three smart greenhouses.'
+        },
+        points: {
+          fr: ['Acquisition des données capteurs et traitement local sur ESP32', 'Commande des actionneurs et communication MQTT', 'Supervision temps réel sous Node-RED', 'Simulation et validation sous Proteus ISIS', 'Distinction : 1ère meilleure réalisation'],
+          en: ['Sensor data acquisition and local processing on ESP32', 'Actuator control and MQTT communication', 'Real-time supervision in Node-RED', 'Simulation and validation in Proteus ISIS', 'Award: best project (1st place)']
+        },
+        tags: ['ESP32', 'MQTT', 'Node-RED', 'Proteus ISIS']
+      },
+      irrigation: {
+        cat: { fr: 'IoT · Énergie solaire', en: 'IoT · Solar energy' },
+        title: { fr: 'Système d\'irrigation solaire autonome', en: 'Autonomous solar irrigation system' },
+        desc: {
+          fr: 'Conception d\'un système intelligent d\'irrigation alimenté à l\'énergie solaire, avec supervision IoT et modes de commande automatique.',
+          en: 'Design of a smart solar-powered irrigation system with IoT supervision and automatic control modes.'
+        },
+        points: {
+          fr: ['Supervision IoT via MQTT et Node-RED', 'Modes de commande automatique d\'irrigation', 'Dimensionnement hydraulique et énergétique d\'une serre', 'Simulation sous Proteus ISIS'],
+          en: ['IoT supervision via MQTT and Node-RED', 'Automatic irrigation control modes', 'Hydraulic and energy sizing for a greenhouse', 'Simulation in Proteus ISIS']
+        },
+        tags: ['Arduino Mega', 'Python', 'MQTT', 'Node-RED', 'Proteus ISIS']
+      },
+      robot: {
+        cat: { fr: 'Robotique · Embarqué', en: 'Robotics · Embedded' },
+        title: { fr: 'Robot mobile multifonctionnel', en: 'Multifunction mobile robot' },
+        desc: {
+          fr: 'Conception d\'un robot mobile 4WD multifonctionnel basé sur Arduino UNO.',
+          en: 'Design of a multifunction 4WD mobile robot based on an Arduino UNO.'
+        },
+        points: {
+          fr: ['Châssis 4WD et commande des moteurs', 'Détection d\'obstacles par capteurs', 'Contrôle à distance Bluetooth', 'Développement et validation sous Proteus ISIS'],
+          en: ['4WD chassis and motor control', 'Obstacle detection with sensors', 'Bluetooth remote control', 'Development and validation in Proteus ISIS']
+        },
+        tags: ['Arduino UNO', 'Proteus ISIS', 'Bluetooth', '4WD']
+      },
+      tri: {
+        cat: { fr: 'Automatisation', en: 'Automation' },
+        title: { fr: 'Système de tri automatisé', en: 'Automated sorting system' },
+        desc: {
+          fr: 'Conception et programmation d\'un système de tri séquentiel automatisé basé sur des capteurs industriels, sur automate Festo.',
+          en: 'Design and programming of an automated sequential sorting system based on industrial sensors, on a Festo PLC.'
+        },
+        points: {
+          fr: ['Séquencement des opérations de tri', 'Logique de commande sur automate Festo (FST4)', 'Intégration de capteurs industriels'],
+          en: ['Sequencing of sorting operations', 'Control logic on a Festo PLC (FST4)', 'Integration of industrial sensors']
+        },
+        tags: ['Automate Festo', 'FST4', 'Capteurs industriels']
+      }
+    };
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var currentLang = 'fr';
+
+    /* Keep the original French markup so we can switch back losslessly. */
+    var frOriginals = new Map();
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      if (!frOriginals.has(el.dataset.i18n)) frOriginals.set(el.dataset.i18n, el.innerHTML);
+    });
+    var frTitle = document.title;
+    var enTitle = 'Mohamed Laamri | Automation & Smart Systems';
+
+    /* ---------- Typed text ---------- */
+    var typedEl = document.getElementById('typed-text');
+    var typedTimers = [];
+    function clearTypedTimers() { typedTimers.forEach(clearTimeout); typedTimers = []; }
+    function startTyped(lang) {
+      clearTypedTimers();
+      if (!typedEl) return;
+      var words = TYPED[lang] || TYPED.fr;
+      if (reduceMotion) { typedEl.textContent = words[0]; return; }
+      var wi = 0, ci = 0, deleting = false;
+      function tick() {
+        var word = words[wi];
+        typedEl.textContent = word.slice(0, ci);
+        var delay = deleting ? 32 : 62;
+        if (!deleting && ci === word.length) { delay = 1800; deleting = true; }
+        else if (deleting && ci === 0) { deleting = false; wi = (wi + 1) % words.length; delay = 350; }
+        else { ci += deleting ? -1 : 1; }
+        typedTimers.push(setTimeout(tick, delay));
+      }
+      tick();
+    }
+
+    /* ---------- Language switch ---------- */
+    function setLanguage(lang) {
+      currentLang = (lang === 'en') ? 'en' : 'fr';
+      document.documentElement.lang = currentLang;
+      document.title = currentLang === 'en' ? enTitle : frTitle;
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var key = el.dataset.i18n;
+        if (currentLang === 'en' && EN[key]) el.innerHTML = EN[key];
+        else if (frOriginals.has(key)) el.innerHTML = frOriginals.get(key);
+      });
+      document.querySelectorAll('.language-switch button').forEach(function (btn) {
+        var active = btn.dataset.lang === currentLang;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+      try { localStorage.setItem('portfolio-lang', currentLang); } catch (e) {}
+      startTyped(currentLang);
+    }
+    document.querySelectorAll('.language-switch button').forEach(function (btn) {
+      btn.addEventListener('click', function () { setLanguage(btn.dataset.lang); });
+    });
+
+    /* ---------- Navbar / hamburger / back-to-top ---------- */
+    var navbar = document.getElementById('navbar');
+    var backToTop = document.getElementById('back-to-top');
+    function onScroll() {
+      var y = window.scrollY || 0;
+      if (navbar) navbar.classList.toggle('scrolled', y > 40);
+      if (backToTop) backToTop.classList.toggle('visible', y > 600);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    if (backToTop) backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+
+    var hamburger = document.getElementById('hamburger');
+    var navLinks = document.getElementById('nav-links');
+    function closeMenu() {
+      if (!navLinks || !hamburger) return;
+      navLinks.classList.remove('open'); hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', function () {
+        var open = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open', open);
+        hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      navLinks.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+    }
+
+    /* Scrollspy */
+    var spyLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    if ('IntersectionObserver' in window && spyLinks.length) {
+      var byId = {};
+      spyLinks.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+      var spy = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && byId[entry.target.id]) {
+            spyLinks.forEach(function (a) { a.classList.remove('active'); });
+            byId[entry.target.id].classList.add('active');
+          }
+        });
+      }, { rootMargin: '-40% 0px -55% 0px' });
+      Object.keys(byId).forEach(function (id) {
+        var sec = document.getElementById(id);
+        if (sec) spy.observe(sec);
+      });
+    }
+
+    /* Reveal on scroll */
+    var revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && !reduceMotion) {
+      var revealObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObs.unobserve(entry.target); }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach(function (el) { revealObs.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add('visible'); });
+    }
+
+    /* Animated counters */
+    function animateCount(el) {
+      var target = parseInt(el.dataset.count, 10) || 0;
+      if (reduceMotion) { el.textContent = target + '+'; return; }
+      var start = null;
+      function step(ts) {
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / 1100, 1);
+        el.textContent = Math.round(target * p) + (p === 1 ? '+' : '');
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    var counters = document.querySelectorAll('.stat-n[data-count]');
+    if ('IntersectionObserver' in window && counters.length) {
+      var countObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { animateCount(entry.target); countObs.unobserve(entry.target); }
+        });
+      }, { threshold: 0.5 });
+      counters.forEach(function (el) { countObs.observe(el); });
+    } else {
+      counters.forEach(animateCount);
+    }
+
+    /* Project filters */
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var projCards = document.querySelectorAll('.proj-card');
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        filterBtns.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var f = btn.dataset.filter;
+        projCards.forEach(function (card) {
+          var cats = (card.dataset.category || '').split(/\s+/);
+          card.classList.toggle('hidden', f !== 'all' && cats.indexOf(f) === -1);
+          if (f === 'all' || cats.indexOf(f) !== -1) card.classList.add('visible');
+        });
+      });
+    });
+
+    /* Project modal */
+    var modal = document.getElementById('project-modal');
+    var modalClose = document.getElementById('modal-close');
+    var lastFocus = null;
+    function openModal(key, trigger) {
+      var data = PROJECT_DETAILS[key];
+      if (!data || !modal) return;
+      lastFocus = trigger || document.activeElement;
+      document.getElementById('modal-cat').textContent = data.cat[currentLang];
+      document.getElementById('modal-title').textContent = data.title[currentLang];
+      document.getElementById('modal-desc').textContent = data.desc[currentLang];
+      var ul = document.getElementById('modal-points');
+      ul.innerHTML = '';
+      data.points[currentLang].forEach(function (pt) {
+        var li = document.createElement('li'); li.textContent = pt; ul.appendChild(li);
+      });
+      var tags = document.getElementById('modal-tags');
+      tags.innerHTML = '';
+      data.tags.forEach(function (t) {
+        var s = document.createElement('span'); s.className = 'tag'; s.textContent = t; tags.appendChild(s);
+      });
+      modal.hidden = false;
+      requestAnimationFrame(function () { modal.classList.add('open'); });
+      document.body.style.overflow = 'hidden';
+      if (modalClose) modalClose.focus();
+    }
+    function closeModal() {
+      if (!modal) return;
+      modal.classList.remove('open');
+      modal.hidden = true;
+      document.body.style.overflow = '';
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+    projCards.forEach(function (card) {
+      card.addEventListener('click', function () { openModal(card.dataset.project, card); });
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(card.dataset.project, card); }
+      });
+    });
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    if (modal) modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeModal(); closeMenu(); } });
+
+    /* Contact form -> mailto (static site, no backend) */
+    var form = document.getElementById('contact-form');
+    var status = document.getElementById('form-status');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = document.getElementById('cf-name').value.trim();
+        var email = document.getElementById('cf-email').value.trim();
+        var subject = document.getElementById('cf-subject').value.trim();
+        var message = document.getElementById('cf-message').value.trim();
+        var invalid = !name || !subject || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        if (invalid) {
+          if (status) {
+            status.style.color = '#f87171';
+            status.textContent = currentLang === 'en'
+              ? 'Please fill in all fields with a valid email address.'
+              : 'Veuillez remplir tous les champs avec un email valide.';
+          }
+          return;
+        }
+        var body = message + '\n\n— ' + name + ' (' + email + ')';
+        window.location.href = 'mailto:Laamrimohamed01@gmail.com?subject=' +
+          encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        if (status) {
+          status.style.color = 'var(--accent3)';
+          status.textContent = currentLang === 'en'
+            ? 'Opening your email client…'
+            : 'Ouverture de votre client email…';
+        }
+      });
+    }
+
+    /* Canvas particle network */
+    var canvas = document.getElementById('canvas-bg');
+    if (canvas && !reduceMotion) {
+      var ctx = canvas.getContext('2d');
+      var W = 0, H = 0, particles = [];
+      function resize() {
+        var dpr = Math.min(window.devicePixelRatio || 1, 2);
+        W = window.innerWidth; H = window.innerHeight;
+        canvas.width = W * dpr; canvas.height = H * dpr;
+        canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        var count = Math.min(70, Math.max(24, Math.floor(W * H / 26000)));
+        particles = [];
+        for (var i = 0; i < count; i++) {
+          particles.push({
+            x: Math.random() * W, y: Math.random() * H,
+            vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35,
+            r: Math.random() * 1.6 + 0.6
+          });
+        }
+      }
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        for (var i = 0; i < particles.length; i++) {
+          var p = particles[i];
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < 0 || p.x > W) p.vx *= -1;
+          if (p.y < 0 || p.y > H) p.vy *= -1;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(56,189,248,0.7)';
+          ctx.fill();
+          for (var j = i + 1; j < particles.length; j++) {
+            var q = particles[j], dx = p.x - q.x, dy = p.y - q.y, dist = Math.hypot(dx, dy);
+            if (dist < 130) {
+              ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
+              ctx.strokeStyle = 'rgba(56,189,248,' + (0.22 * (1 - dist / 130)).toFixed(3) + ')';
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+      window.addEventListener('resize', resize);
+      resize(); draw();
+    }
+
+    /* Init */
+    var yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+    var saved = 'fr';
+    try { saved = localStorage.getItem('portfolio-lang') || 'fr'; } catch (e) {}
+    setLanguage(saved);
+  })();
+  </script>
+</body>
+</html>
+
